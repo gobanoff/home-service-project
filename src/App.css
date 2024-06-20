@@ -1,0 +1,37 @@
+
+
+.topbar li {
+  padding-top: 1.2em;
+  list-style-type: none;
+  font-weight: 700;
+}
+
+img {
+  width: 20vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: blueviolet;
+  color: white;
+  margin-right: 6em;
+  width: 12em;
+  height: 3.2em;
+  border-radius: 5px;
+  border: none;
+  margin-top: 1em;
+}
+
+
+
+
+
+p {font-size: 18px;
+  color: rgb(148, 148, 161);
+}
+
+
