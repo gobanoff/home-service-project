@@ -1,6 +1,6 @@
 import { CiSearch } from "react-icons/ci";
-import Button from "../common/Button";
-import SearchInput from "../common/SearchInput";
+import Button from "./Button";
+import SearchInput from "./SearchInput";
 import styles from "./Hero.module.scss";
 
 const Hero = () => {

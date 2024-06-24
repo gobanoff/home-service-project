@@ -1,5 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
-import { ROUTES } from "../router/consts";
+import { ROUTES } from "../../router/consts";
 import Button from "../common/Button";
 import styles from "./Topbar.module.scss";
 import Logo from "../../assets/logo.svg";
