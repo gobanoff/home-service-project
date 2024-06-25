@@ -2,15 +2,15 @@ import { Outlet } from "react-router-dom";
 import Topbar from "./Topbar";
 import styles from "./Layout.module.scss";
 
-const RootLayout = () => {
+const AuthLayout = () => {
   return (
     <>
       <Topbar />
-      <div className={styles.rootContainer}>
+      <div className={styles.authContainer}>
         <Outlet />
       </div>
     </>
   );
 };
 
-export default RootLayout;
+export default AuthLayout;

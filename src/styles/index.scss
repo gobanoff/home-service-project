@@ -136,3 +136,10 @@ a {
 a:hover {
   text-decoration: underline;
 }
+input:focus-visible {
+  outline-color: $primary-color;
+}
+
+#root {
+  height: 100vh;
+}

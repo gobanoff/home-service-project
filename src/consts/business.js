@@ -14,7 +14,7 @@ export const businesses = [
       ],
     },
     {
-      _id: "662e9ac5c68c09aa94544549",
+      _id: "662e9ac5c68c09aa94544549a",
       name: "UAB Valymas",
       about: "Description Two",
       address: "Aukštaičių al. 27, Klaipėda",
@@ -46,11 +46,49 @@ export const businesses = [
       name: "Elektrikas į namus",
       address: "Maisto g. 17, Vilnius",
       category: "electric",
-      contactPerson: "Rokas Andreikėnas",
+      contactPerson: "Vilius Stakenas",
       email: "food@gmail.com",
       images: [
         {
           url: "https://grainger-prod.adobecqms.net/content/dam/grainger/gus/en/public/digital-tactics/know-how/hero/kh-qualified-vs-unqualified-electrical-workers_feat.jpg",
+        },
+      ],
+    },
+    {
+      _id: "662ea59ed296417abaedfdfq",
+      name: "Dazytoja į namus",
+      address: "Taikos g. 2, Vilnius",
+      category: "painting",
+      contactPerson: "Inma Cuesta",
+      email: "feed@gmail.com",
+      images: [
+        {
+          url: "https://media.gettyimages.com/id/1345880262/photo/sitges-spain-actress-inma-cuesta-attends-to-historias-para-no-dormir-red-carpet-during-sitges.jpg?s=612x612&w=gi&k=20&c=xyena0L4Es9Fd4ajOxSL2JeWIU9b8LqBeczjBRu-x-Q=",
+        },
+      ],
+    },
+    {
+      _id: "662ea59ed296417abaedfdff",
+      name: "Dazytoja į namus",
+      address: "Talino g. 22, Vilnius",
+      category: "painting",
+      contactPerson: "Lee Ye Hyun",
+      email: "faid@gmail.com",
+      images: [
+        {
+          url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjp1TQCMn5DOnhDbWI5_ywBqJ8yZOUZYHEybt29w4FaJgLVJCygrQWIdGA_Y4zx-blILs&usqp=CAU",
+        },
+      ],
+    },
+    {
+      _id: "662ea59ed296417abaedfdfy",
+      name: "Dazytoja į namus",
+      address: "Oslo g. 62, Vilnius",
+      category: "painting",
+      contactPerson: "Mary-Kate Olsen",
+      email: "fuid@gmail.com",
+      images: [
+        {url: "https://kep.cdn.index.hu/1/0/4401/44018/440187/44018718_36a626d25f25f30a7a5d8ce65b0a66e9_wm.jpg",
         },
       ],
     },
