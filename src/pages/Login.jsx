@@ -11,11 +11,34 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formErrors = validateForm();
+    setErrors(formErrors); 
+    if (Object.keys(newErrors).length === 0) {
     login({ email, password });
-    navigate(ROUTES.HOME);
+    navigate(ROUTES.HOME);}
+  };
+  
+  const validateForm = () => {
+    const formErrors = {};
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      formErrors.email = "Field is required";
+    } else if (!emailPattern.test(email)) {
+      formErrors.email = "Invalid email address";
+    }
+
+    if (!password) {
+      formErrors.password = "Field is required";
+    } else if (password.length < 8) {
+      formErrors.password = "Password must be at least 8 characters";
+    }
+
+    return formErrors;
   };
 
   return (
@@ -29,7 +52,7 @@ const Login = () => {
           onChange={(event) => setEmail(event.target.value)}
           required
           className={styles.input}
-        />
+        />{errors.email && <p className={styles.error}>{errors.email}</p>}
         <Input
           type="password"
           placeholder="Password"
@@ -37,7 +60,7 @@ const Login = () => {
           onChange={(event) => setPassword(event.target.value)}
           required
           className={styles.input}
-        />
+        />  {errors.password && <p className={styles.error}>{errors.password}</p>}
         <Button type="submit">Log in</Button>
         <div className={styles.link}>
           <Link to={ROUTES.REGISTER} className={styles.signUp}>
