@@ -16,12 +16,13 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formErrors = validateForm();
-    setErrors(formErrors); 
-    if (Object.keys(newErrors).length === 0) {
-    login({ email, password });
-    navigate(ROUTES.HOME);}
+    setErrors(formErrors);
+    if (Object.keys(formErrors).length === 0) {
+      login({ email, password });
+      navigate(ROUTES.HOME);
+    }
   };
-  
+
   const validateForm = () => {
     const formErrors = {};
 
@@ -52,7 +53,8 @@ const Login = () => {
           onChange={(event) => setEmail(event.target.value)}
           required
           className={styles.input}
-        />{errors.email && <p className={styles.error}>{errors.email}</p>}
+        />{" "}
+        {errors.email && <p className={styles.error}>{errors.email}</p>}
         <Input
           type="password"
           placeholder="Password"
@@ -60,7 +62,8 @@ const Login = () => {
           onChange={(event) => setPassword(event.target.value)}
           required
           className={styles.input}
-        />  {errors.password && <p className={styles.error}>{errors.password}</p>}
+        />{" "}
+        {errors.password && <p className={styles.error}>{errors.password}</p>}
         <Button type="submit">Log in</Button>
         <div className={styles.link}>
           <Link to={ROUTES.REGISTER} className={styles.signUp}>
