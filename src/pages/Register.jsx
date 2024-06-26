@@ -57,7 +57,7 @@ const Register = () => {
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>Register</h2>
-        {errors.name && <p className={styles.error}>{errors.name}</p>}
+
         <Input
           type="text"
           name="name"
@@ -100,4 +100,3 @@ const Register = () => {
 };
 
 export default Register;
-
