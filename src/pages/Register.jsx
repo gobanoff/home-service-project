@@ -64,7 +64,6 @@ const Register = () => {
           placeholder="Name"
           value={formData.name}
           onChange={handleChange}
-          required
           className={styles.input}
         />
         {errors.name && <p className={styles.error}>{errors.name}</p>}
@@ -74,7 +73,6 @@ const Register = () => {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          required
           className={styles.input}
         />
         {errors.email && <p className={styles.error}>{errors.email}</p>}
@@ -84,7 +82,6 @@ const Register = () => {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          required
           className={styles.input}
         />
         {errors.password && <p className={styles.error}>{errors.password}</p>}

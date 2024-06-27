@@ -51,7 +51,6 @@ const Login = () => {
           placeholder="Email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          required
           className={styles.input}
         />{" "}
         {errors.email && <p className={styles.error}>{errors.email}</p>}
@@ -60,7 +59,6 @@ const Login = () => {
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          required
           className={styles.input}
         />{" "}
         {errors.password && <p className={styles.error}>{errors.password}</p>}
