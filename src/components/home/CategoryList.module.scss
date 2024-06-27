@@ -31,3 +31,38 @@
     cursor: pointer;
   }
 }
+@media (max-width: 1200px) {
+  .card {
+    width: 150px;
+    height: 110px;
+    gap: 1rem;
+    border-radius: 0.5rem;
+  
+    .name {
+      font-size: 1.0rem;
+    }   
+  }
+}
+@media (max-width: 1000px) {
+  .card {
+    width: 140px;
+    height: 100px;
+    gap: 1rem;
+    border-radius: 0.5rem;
+  
+    .name {
+      font-size: 1.0rem;
+    } 
+  }
+}
+@media (max-width: 800px) {
+  .card {
+    width: 120px;
+    height: 80px;
+    gap: 0.4rem;
+  
+    .name {
+      font-size: 0.75rem;
+    }  
+  }
+}

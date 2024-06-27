@@ -56,7 +56,7 @@ export const businesses = [
     },
     {
       _id: "662ea59ed296417abaedfdfq",
-      name: "Dazytoja į namus",
+      name: "Dažytoja į namus",
       address: "Taikos g. 2, Vilnius",
       category: "painting",
       contactPerson: "Inma Cuesta",
@@ -69,7 +69,7 @@ export const businesses = [
     },
     {
       _id: "662ea59ed296417abaedfdff",
-      name: "Dazytoja į namus",
+      name: "Dažytoja į namus",
       address: "Talino g. 22, Vilnius",
       category: "painting",
       contactPerson: "Lee Ye Hyun",
@@ -82,7 +82,7 @@ export const businesses = [
     },
     {
       _id: "662ea59ed296417abaedfdfy",
-      name: "Dazytoja į namus",
+      name: "Dažytoja į namus",
       address: "Oslo g. 62, Vilnius",
       category: "painting",
       contactPerson: "Mary-Kate Olsen",

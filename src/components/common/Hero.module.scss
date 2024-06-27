@@ -48,3 +48,14 @@
     font-size: 1.0rem;
   }
 }
+@media (max-width: 420px) {
+
+  .title {
+    font-size: 2.0rem;
+    line-height: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1.0rem;
+  }
+}
