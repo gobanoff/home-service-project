@@ -34,3 +34,28 @@
     background: #fff;
   }
 }
+@media (max-width: 1450px) {
+  .searchInput {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    width: 40rem;
+  }
+}
+@media (max-width: 1200px) {
+  .searchInput {
+    height: 3.5rem;
+  }
+}
+@media (max-width: 800px) {
+  .searchInput {
+    font-size: 0.8rem;
+    height: 3.0rem;
+  }
+}
+@media (max-width: 600px) {
+  .searchInput {
+    font-size: 0.8rem;
+    height: 2.5rem;
+  }
+}

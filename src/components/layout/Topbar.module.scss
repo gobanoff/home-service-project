@@ -22,3 +22,19 @@
   display: flex;
   gap: 1.5rem;
 }
+
+@media (max-width: 800px) {
+  .navigation {
+    gap: 0.5rem;
+  }
+  .link {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 600px) {
+  .navigation {
+    display: none;
+  }
+
+  
+}
