@@ -25,13 +25,14 @@ const Topbar = () => {
       label: "About Us",
     },
   ];
-
+  
   return (
     <header className={styles.topbar}>
       <div className={styles.leftSide}>
         <Link to={ROUTES.HOME}>
           <img src={Logo} alt="logo" />
         </Link>
+
         <nav className={styles.navigation}>
           {links.map((link) => (
             <Link key={link.label} to={link.href} className={styles.link}>
@@ -42,7 +43,7 @@ const Topbar = () => {
       </div>
 
       <div className={styles.rightSide}>
-      {user ? (
+        {user ? (
           <Avatar>{user.email[0]}</Avatar>
         ) : (
           <Button onClick={() => navigate(ROUTES.LOGIN)} large>
