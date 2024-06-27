@@ -6,3 +6,23 @@
     width: 24px;
     height: 24px;
   }
+  @media (max-width: 1000px) {
+    .icon {
+      mask-size: 90%;
+    }
+  }
+  @media (max-width: 800px) {
+    .icon {
+      mask-size: 70%;
+    }
+  }
+  @media (max-width: 600px) {
+    .icon {
+      mask-size: 50%;
+    }
+  }
+  @media (max-width: 420px) {
+    .icon {
+      mask-size: 40%; 
+    }
+  }
