@@ -52,7 +52,7 @@ const Login = () => {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           className={styles.input}
-        />{" "}
+        />
         {errors.email && <p className={styles.error}>{errors.email}</p>}
         <Input
           type="password"
@@ -60,7 +60,7 @@ const Login = () => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           className={styles.input}
-        />{" "}
+        />
         {errors.password && <p className={styles.error}>{errors.password}</p>}
         <Button type="submit">Log in</Button>
         <div className={styles.link}>
