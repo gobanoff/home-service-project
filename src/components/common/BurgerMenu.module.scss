@@ -1,17 +1,18 @@
-//.burgerButton {
-/// display: none;
-//}
-
+@media (min-width: 601px) {
+  .burgerButton {
+    display: none;
+  }
+}
 @media (max-width: 600px) {
   .burgerMenu {
     position: relative;
 
     .burgerButton {
-      border-radius: 7px;
+      border-radius: 6px;
       color: rgb(246, 246, 246);
-      background-color:  #5b24e7;
+      background-color: #5b24e7;
       border: none;
-      font-size: 20px;
+      font-size: 19px;
       cursor: pointer;
     }
 
@@ -34,6 +35,22 @@
         &:last-child {
           border-bottom: none;
         }
+      }
+    }
+  }
+}
+@media (max-width: 420px) {
+  .burgerMenu {
+    .burgerButton {
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .burgerNav {
+      width: 80px;
+
+      .link {
+        font-size: 8px;
       }
     }
   }

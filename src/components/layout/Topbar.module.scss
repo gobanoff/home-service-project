@@ -47,11 +47,13 @@
   }
 }
 @media (max-width: 420px) {
- 
+  .leftSide {
+    gap:0.1rem;
+  }
   .topbar { 
-    padding: 2rem 1.6rem;
+    padding: 2rem 1rem;
   }
   img{
-    width: 60%;
+    width: 56%;
   }
 }
