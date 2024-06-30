@@ -30,11 +30,28 @@
   .link {
     font-size: 0.75rem;
   }
+  .leftSide {
+  
+    gap:1.4rem;
+  }
 }
 @media (max-width: 600px) {
   .navigation {
     display: none;
   }
-
-  
+  .topbar { 
+    padding: 2rem 2rem;
+  }
+  img{
+    width: 70%;
+  }
+}
+@media (max-width: 420px) {
+ 
+  .topbar { 
+    padding: 2rem 1.6rem;
+  }
+  img{
+    width: 60%;
+  }
 }

@@ -6,6 +6,7 @@ import Logo from "../../assets/logo.svg";
 import { useContext } from "react";
 import { UserContext } from "@/context/UserContext";
 import Avatar from "../common/Avatar";
+import BurgerMenu from "../common/BurgerMenu";
 
 const Topbar = () => {
   const { user } = useContext(UserContext);
@@ -32,7 +33,7 @@ const Topbar = () => {
         <Link to={ROUTES.HOME}>
           <img src={Logo} alt="logo" />
         </Link>
-
+        <BurgerMenu />
         <nav className={styles.navigation}>
           {links.map((link) => (
             <Link key={link.label} to={link.href} className={styles.link}>

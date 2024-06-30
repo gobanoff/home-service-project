@@ -6,3 +6,8 @@
     height: calc(100vh - 117px);
     background-color: #f9f8fe;
   }
+  @media (max-width: 420px) {
+    .rootContainer {
+      padding: 2rem;
+    }
+  }

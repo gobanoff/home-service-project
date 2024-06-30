@@ -70,7 +70,8 @@
     margin-top: 0.7rem;
     font-size: 0.7rem;
   }
-  .address {margin-top: 0.7rem;
+  .address {
+    margin-top: 0.7rem;
     font-size: 0.5rem;
   }
   .contactPerson {
@@ -81,9 +82,54 @@
     padding: 0.5rem 1rem;
     font-size: 0.5rem;
   }
-  
 }
 @media (max-width: 600px) {
+  .card {
+    border-radius: 1rem;
+    height: 250px;
+  }
+  .name {
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+  }
+  .address {
+    margin-top: 0.5rem;
+    font-size: 0.4rem;
+  }
+  .contactPerson {
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+  }
+  .chip {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.3rem;
+  }
+  .infoContainer {
+    padding: 0.8rem;
+  }
 }
 @media (max-width: 420px) {
+  .card {
+    border-radius: 0.6rem;
+    height: 150px;
+  }
+  .name {
+    margin-top: 0.3rem;
+    font-size: 0.4rem;
+  }
+  .address { margin-bottom: 0rem;
+    margin-top: 0.3rem;
+    font-size: 0.25rem;
+  }
+  .contactPerson {
+    margin-top: 0.3rem;
+    font-size: 0.3rem;
+  }
+  .chip {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.2rem;
+  }
+  .infoContainer {
+    padding: 0.3rem;
+  }
 }

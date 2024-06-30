@@ -10,3 +10,16 @@
     gap: 1rem;
   }
 }
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    width: 200px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
