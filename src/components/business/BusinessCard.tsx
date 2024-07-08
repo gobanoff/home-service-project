@@ -1,12 +1,17 @@
 import Button from "../common/Button";
 import styles from "./BusinessCard.module.scss";
+import { Business } from "./types";
 
-const BusinessCard = ({ business }) => {
+interface BusinessCardProps {
+  business: Business;
+}
+
+const BusinessCard = ({ business }: BusinessCardProps) => {
   return (
     <div className={styles.card}>
-      {business.images.length && (
+      {business.imageUrls.length && (
         <img
-          src={business.images[0].url}
+          src={business.imageUrls[0]}
           alt={business.name}
           className={styles.image}
         />

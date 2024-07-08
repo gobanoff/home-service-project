@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import styles from "./Input.module.scss";
 
-const Input = ({ className, ...props }) => {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> { }
+
+const Input = ({ className, ...props }: InputProps) => {
   return <input className={classNames(styles.input, className)} {...props} />;
 };
 

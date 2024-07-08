@@ -1,10 +1,11 @@
-import Input from "@/components/common/Input";
-import styles from "./Login.module.scss";
-import Button from "@/components/common/Button";
+
+import { SyntheticEvent, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/router/consts";
-import { useContext, useState } from "react";
+import Button from "@/components/common/Button";
+import Input from "@/components/common/Input";
 import { UserContext } from "@/context/UserContext";
+import styles from "./Login.module.scss";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -13,7 +14,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     const formErrors = validateForm();
     setErrors(formErrors);

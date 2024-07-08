@@ -1,10 +1,16 @@
 import { useNavigate, generatePath, useParams } from "react-router-dom";
 import classNames from "classnames";
-import UrlIcon from "../common/UrlIcon";
 import { ROUTES } from "@/router/consts";
+import UrlIcon from "../common/UrlIcon";
+import { Category } from "./types";
 import styles from "./CategoryCard.module.scss";
 
-const CategoryCard = ({ category }) => {
+interface CategoryCardProps {
+  category: Category;
+  className?: string;
+}
+
+const CategoryCard = ({ category, className }: CategoryCardProps) => {
   const params = useParams();
   const { name } = category;
   const navigate = useNavigate();
@@ -16,7 +22,8 @@ const CategoryCard = ({ category }) => {
     <div
       className={classNames(
         styles.card,
-        activeCategory === name && styles.active
+        activeCategory === name && styles.active,
+        className
       )}
       onClick={() => navigate(categoryPath)}
     >
@@ -24,7 +31,7 @@ const CategoryCard = ({ category }) => {
         url={category.url}
         style={{ width: 48, height: 48, backgroundColor: category.color }}
       />
-      <p className={styles.name}>{name}</p>
+      <p>{name}</p>
     </div>
   );
 };
