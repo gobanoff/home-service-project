@@ -26,7 +26,7 @@ const Topbar = () => {
       label: "About Us",
     },
   ];
-  
+
   return (
     <header className={styles.topbar}>
       <div className={styles.leftSide}>
@@ -45,7 +45,7 @@ const Topbar = () => {
 
       <div className={styles.rightSide}>
         {user ? (
-          <Avatar>{user.email[0]}</Avatar>
+          <Avatar>{user.name[0]}</Avatar>
         ) : (
           <Button onClick={() => navigate(ROUTES.LOGIN)} large>
             Login / Sign Up

@@ -1,4 +1,3 @@
-
 import { SyntheticEvent, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/router/consts";
@@ -6,6 +5,7 @@ import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import { UserContext } from "@/context/UserContext";
 import styles from "./Login.module.scss";
+import { loginUser } from "@/components/user/api";
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -14,13 +14,18 @@ const Login = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = (event: SyntheticEvent) => {
+  const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
     const formErrors = validateForm();
     setErrors(formErrors);
     if (Object.keys(formErrors).length === 0) {
-      login({ email, password });
-      navigate(ROUTES.HOME);
+      try {
+        const response = await loginUser({ email, password });
+        login(response);
+        navigate(ROUTES.HOME);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -31,13 +36,13 @@ const Login = () => {
     if (!email) {
       formErrors.email = "Field is required";
     } else if (!emailPattern.test(email)) {
-      formErrors.email = "Invalid email address";
+      formErrors.email = "Invalid email or password";
     }
 
     if (!password) {
       formErrors.password = "Field is required";
     } else if (password.length < 8) {
-      formErrors.password = "Password must be at least 8 characters";
+      formErrors.password = "Invalid email or password";
     }
 
     return formErrors;
