@@ -17,10 +17,8 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-  
-  .input {
+  .field {
     margin-bottom: 1rem;
-    width: 100%;
   }
   
   .link {
@@ -34,6 +32,6 @@
   }
   .error {
     color: red;
-    font-size: 0.875rem;
-    margin-bottom: 0.7rem;
+    font-size: 0.8rem;
+    margin: 1rem 0;
   }
