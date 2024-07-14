@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Business } from "../components/business/types";
 
-
 interface Booking {
   _id: string;
   businessId: string;
@@ -16,34 +15,45 @@ interface Booking {
 }
 
 const MyBookingsPage = () => {
-  const { id, date } = useParams<{ id: string; date: string; }>();
-  const [business, setBusiness] = useState<Business | null>(null);
+  const { email } = useParams<{ email: string }>();
+  const [businesses, setBusinesses] = useState<{ [key: string]: Business }>({});
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchBusinessAndBookings = async () => {
+    const fetchBookings = async () => {
       try {
-        if (!date || isNaN(new Date(date).getTime())) {
-          throw new Error("Invalid date format");
-        }
-        const response = await axios.get<{
-          business: Business;
-          bookings: Booking[];
-        }>(`http://localhost:3000/businesses/${id}/bookings/date/${date}`);
-        setBusiness(response.data.business);
-        setBookings(response.data.bookings);
+        const bookingsResponse = await axios.get<Booking[]>(
+          `http://localhost:3000/bookings/user/${email}`
+        );
+        const userBookings = bookingsResponse.data.filter(booking => booking.userEmail === email);
+        setBookings(userBookings);
+        
+
+        const businessIds = bookingsResponse.data.map((booking) => booking.businessId);
+        const uniqueBusinessIds = [...new Set(businessIds)];
+
+        const businessRequests = uniqueBusinessIds.map((id) =>
+          axios.get<Business>(`http://localhost:3000/businesses/${id}`)
+        );
+
+        const businessesResponses = await Promise.all(businessRequests);
+        const businessesData = businessesResponses.reduce((acc, response) => {
+          acc[response.data._id] = response.data;
+          return acc;
+        }, {} as { [key: string]: Business });
+
+        setBusinesses(businessesData);
+        setLoading(false);
       } catch (error) {
-        console.error("Error fetching business and bookings data:", error);
-        setError("Failed to fetch business and bookings data");
-      } finally {
+        setError("Failed to fetch data");
         setLoading(false);
       }
     };
 
-    fetchBusinessAndBookings();
-  }, [id, date]);
+    fetchBookings();
+  }, [email]);
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
@@ -53,22 +63,20 @@ const MyBookingsPage = () => {
     return <div className={styles.error}>{error}</div>;
   }
 
-  if (!business || bookings.length === 0) {
-    return <div className={styles.noData}>No data available</div>;
+  if (bookings.length === 0) {
+    return <div className={styles.noData}>No bookings available</div>;
   }
 
   return (
     <div>
-      <h1>My Bookings</h1>
-      <h2>{business.name}</h2>
-      <ul>
+      <h1 className={styles.h1}>My Bookings</h1>
+      <div>
         {bookings.map((booking) => (
-          <li key={booking.businessId}>
-            {booking.userName} - {booking.date.toString()} - {booking.time} -
-            {booking.status}
-          </li>
+          <div className={styles.bookingsContainer} key={booking._id}>
+            {booking.userName} - {new Date(booking.date).toLocaleDateString()} - {booking.time} - {businesses[booking.businessId]?.name}
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

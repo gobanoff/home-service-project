@@ -8,7 +8,7 @@ import Avatar from "../common/Avatar";
 import { UserContext } from "@/context/UserContext";
 
 const Topbar = () => {
-  const { user,logout } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   const navigate = useNavigate();
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -52,12 +52,20 @@ const Topbar = () => {
             {dropdownVisible && (
               <div className={styles.dropdownMenu}>
                 <Link to={ROUTES.MY_ACCOUNT} className={styles.dropdownItem}>
-                 My Account
+                  My Account
                 </Link>
-                <Link to={`/bookings/user/${user.email}`} className={styles.dropdownItem}>
+                <Link 
+                //to={ ROUTES. MY_BOOKINGS}
+                  to={`/bookings/user/${user.email}`}
+                  className={styles.dropdownItem}
+                >
                   My booking
                 </Link>
-                <Link to={ROUTES.HOME} onClick={logout} className={styles.dropdownItem}>
+                <Link
+                  to={ROUTES.HOME}
+                  onClick={logout}
+                  className={styles.dropdownItem}
+                >
                   Logout
                 </Link>
               </div>
