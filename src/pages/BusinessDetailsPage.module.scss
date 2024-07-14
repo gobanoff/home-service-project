@@ -1,0 +1,119 @@
+
+.detailsContainer { 
+  display: block;
+  padding-right: 150px;
+  padding-left: 130px;
+  padding-top: 2rem;
+}
+.upperContainer {
+  display: flex;
+}
+.downContainer {
+  display: flex;
+  padding-top: 10rem;
+}
+.leftContainer {
+  width: 65%;
+  display: flex;
+}
+
+.rightContainer {
+  padding-top: 1.5rem;
+  text-align: end;
+  width: 35%;
+  display: block;
+}
+.downLeftContainer {
+  width: 72%;
+}
+.downRightContainer {
+  width: 28%;
+}
+.imageContainer {
+  width: 30%;
+}
+.available {
+  display: inline-flex;
+  align-items: end;
+  padding-top: 2.3rem;
+
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #a49b9b;
+}
+.dataContainer {
+  width: 70%;
+}
+.image {
+  object-fit: cover;
+  width: 90%;
+  height: 100%;
+  border-radius: 50%;
+}
+.chip {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  background-color: #e5ddfb;
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+.about {
+  padding-right: 3rem;
+  padding-top: 2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: #776c6c;
+}
+.email {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  padding-top: 1.5rem;
+  color: #a49b9b;
+  font-weight: 700;
+}
+
+.name {
+  font-weight: 900;
+  margin-top: 1rem;
+  font-size: 3.5rem;
+}
+
+.contactPerson {
+  font-weight: 700;
+  padding-top: 1.5rem;
+  color: $primary-color;
+  font-size: 1.5rem;
+}
+
+.address {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-top: 1.5rem;
+  color: #a49b9b;
+}
+.gallery {
+  padding-top: 4rem;
+  gap: 1.5rem;
+  display: flex;
+}
+.gallery img {
+  border-radius: 8px;
+  width: 17rem;
+  height: 12rem;
+}
+.h2 {
+  padding-top: 3rem;
+  font-size: 2rem;
+  font-weight: 900;
+}
+.h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding-top: 2rem;
+}

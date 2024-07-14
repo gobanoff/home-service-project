@@ -1,13 +1,14 @@
 .rootContainer {
-    padding: 4rem;
+  background: linear-gradient(0deg, #d8d7da 0%, #ffffff 64%);
+  padding: 4rem;
+}
+
+.authContainer {
+  height: calc(100vh - 117px);
+  background-color: #f9f8fe;
+}
+@media (max-width: 420px) {
+  .rootContainer {
+    padding: 2rem;
   }
-  
-  .authContainer {
-    height: calc(100vh - 117px);
-    background-color: #f9f8fe;
-  }
-  @media (max-width: 420px) {
-    .rootContainer {
-      padding: 2rem;
-    }
-  }
+}

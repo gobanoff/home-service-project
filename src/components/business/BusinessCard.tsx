@@ -1,14 +1,23 @@
 import Button from "../common/Button";
 import styles from "./BusinessCard.module.scss";
 import { Business } from "./types";
-
+import { useNavigate } from "react-router-dom";
 interface BusinessCardProps {
   business: Business;
 }
 
 const BusinessCard = ({ business }: BusinessCardProps) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    if (business._id) {
+      navigate(`/details/${business._id}`);
+    } else {
+      console.error("Business ID is undefined");
+    }
+  };
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={handleCardClick}>
       {business.imageUrls.length && (
         <img
           src={business.imageUrls[0]}

@@ -11,7 +11,12 @@
     background-color: #5b24e7;
   }
 }
-
+.special {
+  margin-top: 1.2rem;
+  padding: 0 0 0 0rem;
+  width: 4rem;
+  height: 2.7rem;
+}
 .rounded {
   width: 4rem;
   height: 4rem;
@@ -19,6 +24,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 0 0;
+  font-weight: 700;
+  width: 26rem;
+  height: 3.2rem;
 }
 .large {
   padding: 1rem 1.5rem;
@@ -80,7 +94,6 @@
 }
 
 @media (max-width: 420px) {
-   
   .button {
     padding: 0.2rem 0.6rem;
     border-radius: 3px;

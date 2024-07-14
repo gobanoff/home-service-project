@@ -50,7 +50,17 @@ router.get('/:id', async (req, res) => {
     res.status(500).json({ message: 'Error fetching business', error: err });
   }
 });
-
+router.get('/details/:id', async (req, res) => {
+  try {
+    const business = await Business.findById(req.params.id);
+    if (!business) {
+      return res.status(404).send('Business not found');
+    }
+    res.json(business);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching business by id', error: err });
+  }
+});
 router.get('/category/:category', async (req, res) => {
   try {
     const filteredBusinesses = await Business.find({

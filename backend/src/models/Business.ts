@@ -4,6 +4,7 @@ interface IBusiness {
   name: string;
   about: string;
   address: string;
+  available:string;
   category: string;
   contactPerson: string;
   email: string;
@@ -20,6 +21,10 @@ const businessSchema = new mongoose.Schema<IBusiness>({
     default: "",
   },
   address: {
+    type: String,
+    required: true,
+  },
+  available: {
     type: String,
     required: true,
   },
