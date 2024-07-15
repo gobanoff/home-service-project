@@ -86,13 +86,13 @@ const MyBookingsPage = () => {
         <h1 className={styles.h1}>My Bookings</h1>
         <div className={styles.statusBar}>
           <Button onClick={() => setFilter("confirmed")} status>
-            Confirmed
+            Booked
           </Button>
           <Button onClick={() => setFilter("pending")} status>
-            Pending
+            In-Progress
           </Button>
           <Button onClick={() => setFilter("cancelled")} status>
-            Cancelled
+            Completed
           </Button>
         </div>
         <div className={styles.cardList}>
