@@ -3,6 +3,7 @@ export interface Business {
     name: string;
     about: string;
     address: string;
+    available:string;
     category: string;
     contactPerson: string;
     email: string;

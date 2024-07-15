@@ -1,18 +1,20 @@
-
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
 import { ROUTES } from "./router/consts";
-import RootLayout from "./components/layout/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import Login from "./pages/Login";
 import SearchCategory from "./pages/SearchCategory";
-import AuthLayout from "./components/layout/AuthLayout";
 import Register from "./pages/Register";
+import AuthLayout from "./components/layout/AuthLayout";
+import RootLayout from "./components/layout/RootLayout";
 import { UserProvider } from "./context/UserContext";
-
-
+import Services from "./pages/Services";
+import MyAccountPage  from "./pages/MyAccountPage";
+import MyBookingsPage from "./pages/MyBookingsPage";
+import BusinessDetailsPage from "./pages/BusinessDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,19 @@ const router = createBrowserRouter([
         path: ROUTES.SEARCH_CATEGORY,
         element: <SearchCategory />,
       },
+     
+      {
+        path: ROUTES.MY_ACCOUNT,
+        element: <MyAccountPage />,
+      },
+      {
+        path: ROUTES.DETAILS_PAGE,
+        element: <BusinessDetailsPage />,
+      },
+      {
+        path: ROUTES.MY_BOOKINGS,
+        element: <MyBookingsPage />,
+      },
     ],
   },
   {
@@ -53,12 +68,17 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 const App = () => {
- 
   return (
-    <UserProvider>
-      <RouterProvider router={router} />
-    </UserProvider>
+    <QueryClientProvider client={queryClient}>
+      <UserProvider>
+        <SnackbarProvider>
+          <RouterProvider router={router} />
+        </SnackbarProvider>
+      </UserProvider>
+    </QueryClientProvider>
   );
 };
 

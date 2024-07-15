@@ -1,0 +1,93 @@
+.h1 {
+  padding-bottom: 1rem;
+  font-weight: 900;
+  font-size: 1.7rem;
+}
+.myBookings {
+  padding-bottom: 13.35rem;
+  display: block;
+  padding-left: 8rem;
+  padding-right: 9rem;
+  padding-top: 4rem;
+}
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.statusBar {
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+  height: 3.5rem;
+  border-radius: 0.3rem;
+}
+.bookingCard {
+  display: flex;
+  border: 3px solid rgb(226, 223, 220);
+  border-radius: 0.5rem;
+  padding: 1.3rem;
+  width: 46.4rem;
+  height: 20rem;
+}
+.dataList {
+  display: block;
+  width: 75%;
+  padding: 1.2rem;
+}
+.bookingCard img {
+  width: 30%;
+  border-radius: 0.6rem;
+  object-fit: cover;
+}
+.name {
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+.address {
+  display: flex;
+  align-items: center;
+  padding-top: 1.6rem;
+  font-weight: 900;
+  color: #a49b9b;
+  font-size: 1.2rem;
+}
+.contactPerson {
+  display: flex;
+  align-items: center;
+  color: $primary-color;
+  padding-top: 1.6rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.date {
+  display: flex;
+  align-items: center;
+  padding-top: 1.6rem;
+  font-weight: 900;
+  color: #a49b9b;
+  font-size: 1.2rem;
+  :hover {
+    padding: 5px;
+    background-color: rgb(136, 206, 232);
+  }
+}
+.time {
+  display: flex;
+  align-items: center;
+  padding-top: 1.6rem;
+  font-weight: 900;
+  color: #a49b9b;
+  font-size: 1.2rem;
+  :hover {
+    padding: 5px;
+    background-color: rgb(136, 206, 232);
+  }
+}
+.timeSpan {
+  color: black;
+}
+.dateSpan {
+  color: black;
+}

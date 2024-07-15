@@ -3,14 +3,14 @@ import { ROUTES } from "../../router/consts";
 import Button from "../common/Button";
 import styles from "./Topbar.module.scss";
 import Logo from "../../assets/logo.svg";
-import { useContext } from "react";
-import { UserContext } from "@/context/UserContext";
+import { useContext, useState } from "react";
 import Avatar from "../common/Avatar";
-import BurgerMenu from "../common/BurgerMenu";
+import { UserContext } from "@/context/UserContext";
 
 const Topbar = () => {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   const navigate = useNavigate();
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const links = [
     {
@@ -33,7 +33,6 @@ const Topbar = () => {
         <Link to={ROUTES.HOME}>
           <img src={Logo} alt="logo" />
         </Link>
-        <BurgerMenu />
         <nav className={styles.navigation}>
           {links.map((link) => (
             <Link key={link.label} to={link.href} className={styles.link}>
@@ -42,10 +41,36 @@ const Topbar = () => {
           ))}
         </nav>
       </div>
-
       <div className={styles.rightSide}>
         {user ? (
-          <Avatar>{user.name[0]}</Avatar>
+          <div
+            className={styles.avatarContainer}
+            onMouseEnter={() => setDropdownVisible(true)}
+            onMouseLeave={() => setDropdownVisible(false)}
+          >
+            <Avatar>{user.name[0]}</Avatar>
+            {dropdownVisible && (
+              <div className={styles.dropdownMenu}>
+                <Link to={ROUTES.MY_ACCOUNT} className={styles.dropdownItem}>
+                  My Account
+                </Link>
+                <Link 
+                //to={ ROUTES. MY_BOOKINGS}
+                  to={`/bookings/user/${user.email}`}
+                  className={styles.dropdownItem}
+                >
+                  My booking
+                </Link>
+                <Link
+                  to={ROUTES.HOME}
+                  onClick={logout}
+                  className={styles.dropdownItem}
+                >
+                  Logout
+                </Link>
+              </div>
+            )}
+          </div>
         ) : (
           <Button onClick={() => navigate(ROUTES.LOGIN)} large>
             Login / Sign Up

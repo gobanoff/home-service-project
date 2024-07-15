@@ -1,0 +1,32 @@
+.image {
+  width: 40%;
+}
+.card {
+  display: flex;
+  padding-top: 2.5rem;
+  width: 100%;
+}
+.data {
+  width: 60%;
+  display: block;
+}
+.image img {
+  border-radius: 1rem;
+  object-fit: cover;
+  width: 9rem;
+  height: 12rem;
+}
+.address {
+  color: #776c6c;
+  padding-top: 1.5rem;
+  font-weight: 700;
+}
+.contactPerson {
+  padding-top: 1.5rem;
+  color: $primary-color;
+  font-weight: 700;
+}
+.name {
+  padding-top: 1rem;
+  font-weight: 900;
+}
