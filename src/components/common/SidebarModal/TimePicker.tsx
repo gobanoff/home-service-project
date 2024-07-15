@@ -1,7 +1,5 @@
 import * as React from "react";
-
 import dayjs, { Dayjs } from "dayjs";
-
 import { styled } from "@mui/system";
 
 interface TimePickerProps {
@@ -16,11 +14,10 @@ const TimeSlot = styled("div")(({ theme }) => ({
   border: "1px solid #ccc",
   borderRadius: "4px",
   cursor: "pointer",
+  fontWeight: "700",
   userSelect: "none",
   textAlign: "center",
-  "&:hover": {
-    backgroundColor: "#f0f0f0",
-  },
+  "&:hover": { color: "white", backgroundColor: "red" },
   "&.selected": {
     backgroundColor: "#007bff",
     color: "#fff",
@@ -37,8 +34,8 @@ const TimePicker: React.FC<TimePickerProps> = ({ value, onChange }) => {
 
   const renderTimeSlots = () => {
     const timeSlots = [];
-    const startTime = dayjs().startOf("day").add(10, "hour");
-    const endTime = dayjs().startOf("day").add(18, "hour");
+    const startTime = dayjs().startOf("day").add(8, "hour");
+    const endTime = dayjs().startOf("day").add(21.3, "hour");
     let currentTime = startTime;
 
     while (currentTime.isBefore(endTime)) {

@@ -7,6 +7,7 @@ import { LuClock5 } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
 import { LuCalendar } from "react-icons/lu";
+
 interface Booking {
   _id: string;
   businessId: string;
