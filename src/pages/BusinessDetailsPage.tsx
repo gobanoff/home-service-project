@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Business } from "../components/business/types";
 import SimilarBusinessList from "../components/common/SimilarBusinessList";
+import BusinessSidebarModal from "../components/common/SidebarModal/BusinessSidebarModal";
 import Button from "../components/common/Button";
 import { LuClock5 } from "react-icons/lu";
 import { FaRegEnvelope } from "react-icons/fa6";
@@ -15,7 +16,7 @@ import { CiExport } from "react-icons/ci";
 const BusinessDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const [business, setBusiness] = useState<Business | null>(null);
-
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const fetchBusiness = async () => {
       try {
@@ -34,7 +35,13 @@ const BusinessDetailsPage = () => {
   if (!business) {
     return <div>Loading...</div>;
   }
-   
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   return (
     <div className={styles.detailsContainer}>
       <div className={styles.upperContainer}>
@@ -125,10 +132,11 @@ const BusinessDetailsPage = () => {
           </div>
         </div>
         <div className={styles.downRightContainer}>
-          <Button booking>
+          <Button booking onClick={openModal}>
             <GiNotebook style={{ fontWeight: "900", fontSize: "1.5rem", marginRight: "10px", }} />
             <span>Book Appointment</span>
           </Button>
+         <BusinessSidebarModal isOpen={isOpen} onClose={closeModal} />
           <h3 className={styles.h3}>Similar Business</h3>
           <SimilarBusinessList category={business.category} />
           

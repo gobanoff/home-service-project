@@ -74,78 +74,80 @@ const MyBookingsPage = () => {
   }
 
   return (
-    <div className={styles.myBookings}>
-      <h1 className={styles.h1}>My Bookings</h1>
-      
-      <div className={styles.statusBar}></div>
-      <div className={styles.cardList}>
-        {bookings.map((booking) => (
-          <div className={styles.bookingCard} key={booking._id}>
-            <img
-              src={businesses[booking.businessId].imageUrls[0]}
-              alt={businesses[booking.businessId].name}
-              className={styles.image}
-            />
-            <div className={styles.dataList}>
-              <p className={styles.name}>
-
-                {businesses[booking.businessId]?.name}
-              </p>
-              <p className={styles.contactPerson}>
-                <LuUser
-                  style={{
-                    color: " #8056eb",
-                    marginRight: "8px",
-                    fontWeight: "700",
-                    fontSize: "2rem",
-                  }}
-                />
-                {businesses[booking.businessId].contactPerson}
-              </p>
-              <p className={styles.address}>
-                <FiMapPin
-                  style={{
-                    color: "#8056eb",
-                    marginRight: "10px",
-                    fontWeight: "700",
-                    fontSize: "2rem",
-                  }}
-                />
-                {businesses[booking.businessId].address}
-              </p>
-              <p className={styles.date}>
-                <LuCalendar
-                  style={{
-                    color: "#8056eb",
-                    marginRight: "10px",
-                    fontWeight: "700",
-                    fontSize: "2rem",
-                  }}
-                />
-                Service on : <span className={styles.dateSpan}>
-                  {new Date(booking.date).toLocaleDateString("lt-LT", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })}
-                </span>
-              </p>
-              <p className={styles.time}>
-                <LuClock5
-                  style={{
-                    color: "#8056eb",
-                    fontWeight: "700",
-                    fontSize: "1.8rem",
-                    marginRight: "10px",
-                  }}
-                />
-                Service on : <span className={styles.timeSpan}> {booking.time}</span>
-              </p>
+    <>
+      <div className={styles.myBookings}>
+        <h1 className={styles.h1}>My Bookings</h1>
+        <div className={styles.statusBar}> </div>
+        <div className={styles.cardList}>
+          {bookings.map((booking) => (
+            <div className={styles.bookingCard} key={booking._id}>
+              <img
+                src={businesses[booking.businessId].imageUrls[0]}
+                alt={businesses[booking.businessId].name}
+                className={styles.image}
+              />
+              <div className={styles.dataList}>
+                <p className={styles.name}>
+                  {businesses[booking.businessId]?.name}
+                </p>
+                <p className={styles.contactPerson}>
+                  <LuUser
+                    style={{
+                      color: " #8056eb",
+                      marginRight: "8px",
+                      fontWeight: "700",
+                      fontSize: "2rem",
+                    }}
+                  />
+                  {businesses[booking.businessId].contactPerson}
+                </p>
+                <p className={styles.address}>
+                  <FiMapPin
+                    style={{
+                      color: "#8056eb",
+                      marginRight: "10px",
+                      fontWeight: "700",
+                      fontSize: "2rem",
+                    }}
+                  />
+                  {businesses[booking.businessId].address}
+                </p>
+                <p className={styles.date}>
+                  <LuCalendar
+                    style={{
+                      color: "#8056eb",
+                      marginRight: "10px",
+                      fontWeight: "700",
+                      fontSize: "2rem",
+                    }}
+                  />
+                  Service on :
+                  <span className={styles.dateSpan}>
+                    {new Date(booking.date).toLocaleDateString("lt-LT", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}
+                  </span>
+                </p>
+                <p className={styles.time}>
+                  <LuClock5
+                    style={{
+                      color: "#8056eb",
+                      fontWeight: "700",
+                      fontSize: "1.8rem",
+                      marginRight: "10px",
+                    }}
+                  />
+                  Service on :
+                  <span className={styles.timeSpan}> {booking.time}</span>
+                </p>
+              </div>
             </div>
-          </div> 
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
