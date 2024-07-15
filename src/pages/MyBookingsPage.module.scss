@@ -18,6 +18,10 @@
 }
 
 .statusBar {
+  padding: 7px;
+  gap: 1rem;
+  display: flex;
+  justify-content: flex-start;
   width: 100%;
   background-color: rgb(243, 243, 243);
   height: 3.5rem;

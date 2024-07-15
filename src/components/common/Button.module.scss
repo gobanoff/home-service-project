@@ -34,6 +34,15 @@
   width: 26rem;
   height: 3.2rem;
 }
+.status {
+  color: rgb(173, 162, 162);
+  font-weight: 800;
+  background-color: rgb(243, 243, 243);
+  &:hover {
+    color: black;
+    background-color: white;
+  }
+}
 .large {
   padding: 1rem 1.5rem;
   font-size: 1rem;
@@ -42,6 +51,7 @@
 .small {
   padding: 0.5rem 1rem;
 }
+
 @media (max-width: 1200px) {
   .rounded {
     width: 3.5rem;

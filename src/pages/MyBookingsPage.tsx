@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Business } from "../components/business/types";
+import Button from "../components/common/Button";
 import { LuClock5 } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
@@ -77,7 +78,12 @@ const MyBookingsPage = () => {
     <>
       <div className={styles.myBookings}>
         <h1 className={styles.h1}>My Bookings</h1>
-        <div className={styles.statusBar}> </div>
+        <div className={styles.statusBar}>
+        <Button status>Booked</Button>
+        <Button status>In-Progress</Button>
+        <Button status>Completed</Button>
+         
+        </div>
         <div className={styles.cardList}>
           {bookings.map((booking) => (
             <div className={styles.bookingCard} key={booking._id}>

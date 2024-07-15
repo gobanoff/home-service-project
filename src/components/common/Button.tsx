@@ -8,6 +8,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   large?: boolean;
   special?:boolean;
   booking?:boolean;
+  status?:boolean;
   // size: "small" | "medium" | "large" TODO
 }
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
   large,
   special,
   booking,
+  status,
   ...props
 }: ButtonProps) => {
   return (
@@ -28,6 +30,7 @@ const Button = ({
         large && styles.large,
         special && styles.special,
         booking && styles.booking,
+        status && styles.status,
         className
       )}
       {...props}
