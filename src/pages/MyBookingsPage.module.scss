@@ -72,10 +72,6 @@
   font-weight: 900;
   color: #a49b9b;
   font-size: 1.2rem;
-  :hover {
-    padding: 5px;
-    background-color: rgb(136, 206, 232);
-  }
 }
 .time {
   display: flex;
@@ -84,16 +80,21 @@
   font-weight: 900;
   color: #a49b9b;
   font-size: 1.2rem;
-  :hover {
-    padding: 5px;
-    background-color: rgb(136, 206, 232);
-  }
 }
+
 .timeSpan {
   padding-left: 5px;
   color: black;
+  &:hover {
+    padding: 5px;
+    background: rgb(136, 206, 232);
+  }
 }
 .dateSpan {
   padding-left: 5px;
   color: black;
+  &:hover {
+    padding: 5px;
+    background-color: rgb(136, 206, 232);
+  }
 }
