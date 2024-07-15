@@ -24,6 +24,9 @@ const MyBookingsPage = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState<"confirmed" | "pending" | "cancelled">(
+    "confirmed"
+  );
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -73,19 +76,27 @@ const MyBookingsPage = () => {
   if (bookings.length === 0) {
     return <div className={styles.noData}>No bookings available</div>;
   }
+  const filteredBookings = bookings.filter(
+    (booking) => booking.status === filter
+  );
 
   return (
     <>
       <div className={styles.myBookings}>
         <h1 className={styles.h1}>My Bookings</h1>
         <div className={styles.statusBar}>
-        <Button status>Booked</Button>
-        <Button status>In-Progress</Button>
-        <Button status>Completed</Button>
-         
+          <Button onClick={() => setFilter("confirmed")} status>
+            Confirmed
+          </Button>
+          <Button onClick={() => setFilter("pending")} status>
+            Pending
+          </Button>
+          <Button onClick={() => setFilter("cancelled")} status>
+            Cancelled
+          </Button>
         </div>
         <div className={styles.cardList}>
-          {bookings.map((booking) => (
+          {filteredBookings.map((booking) => (
             <div className={styles.bookingCard} key={booking._id}>
               <img
                 src={businesses[booking.businessId].imageUrls[0]}
