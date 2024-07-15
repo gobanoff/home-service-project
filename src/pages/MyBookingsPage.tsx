@@ -157,7 +157,7 @@ const MyBookingsPage = () => {
                     }}
                   />
                   Service on :
-                  <span className={styles.timeSpan}> {booking.time}</span>
+                  <span className={styles.timeSpan}> {booking.time} val.</span>
                 </p>
               </div>
             </div>
