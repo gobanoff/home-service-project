@@ -11,10 +11,12 @@
   padding-top: 4rem;
 }
 .cardList {
-  padding-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
   gap: 1rem;
 }
+
 .statusBar {
   width: 100%;
   background-color: rgb(243, 243, 243);
@@ -26,7 +28,7 @@
   border: 3px solid rgb(226, 223, 220);
   border-radius: 0.5rem;
   padding: 1.3rem;
-  width: 50rem;
+  width: 46.4rem;
   height: 20rem;
 }
 .dataList {
@@ -66,6 +68,10 @@
   font-weight: 900;
   color: #a49b9b;
   font-size: 1.2rem;
+  :hover {
+    padding: 5px;
+    background-color: rgb(136, 206, 232);
+  }
 }
 .time {
   display: flex;
@@ -74,6 +80,10 @@
   font-weight: 900;
   color: #a49b9b;
   font-size: 1.2rem;
+  :hover {
+    padding: 5px;
+    background-color: rgb(136, 206, 232);
+  }
 }
 .timeSpan {
   color: black;

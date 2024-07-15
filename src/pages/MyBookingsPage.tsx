@@ -76,6 +76,7 @@ const MyBookingsPage = () => {
   return (
     <div className={styles.myBookings}>
       <h1 className={styles.h1}>My Bookings</h1>
+      
       <div className={styles.statusBar}></div>
       <div className={styles.cardList}>
         {bookings.map((booking) => (
@@ -141,7 +142,7 @@ const MyBookingsPage = () => {
                 Service on : <span className={styles.timeSpan}> {booking.time}</span>
               </p>
             </div>
-          </div>
+          </div> 
         ))}
       </div>
     </div>
