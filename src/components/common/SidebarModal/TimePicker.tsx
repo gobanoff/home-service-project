@@ -1,7 +1,5 @@
 import * as React from "react";
-
 import dayjs, { Dayjs } from "dayjs";
-
 import { styled } from "@mui/system";
 
 interface TimePickerProps {
@@ -20,7 +18,7 @@ const TimeSlot = styled("div")(({ theme }) => ({
   userSelect: "none",
   textAlign: "center",
   "&:hover": { color: "white", backgroundColor: "red" },
-   
+
   "&.selected": {
     backgroundColor: "#007bff",
     color: "#fff",

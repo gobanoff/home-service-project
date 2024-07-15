@@ -1,5 +1,4 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
-
 import DatePicker from "./DatePicker";
 import { Dayjs } from "dayjs";
 import React from "react";
@@ -69,7 +68,6 @@ const BusinessSidebarModal = ({
           {children || (
             <Typography variant="body1" className={styles.BookingContainer}>
               <span className={styles.selectSpan}>
-                {" "}
                 Select Date and Time slot to book on a service
               </span>
               <strong className={styles.strong}>Select Date</strong>
