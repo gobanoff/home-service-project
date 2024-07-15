@@ -32,15 +32,14 @@ const BusinessSidebarModal = ({
   onClose,
   width = "100%",
   backgroundColor = "#ffffff",
-  opacity = 0.9,
-  title = "Book on a service",
+  opacity = 1,
+  title = "Book on Service",
   children,
 }: BusinessSidebarModalProps) => {
   const handleTimeChange = (newTime: Dayjs | null) => {
     console.log("Selected time:", newTime?.format("HH:mm"));
   };
-
-  const handleReserveTime = () => {};
+  const createBooking = () => {};
   return (
     <DrawerStyled
       anchor="right"
@@ -53,21 +52,27 @@ const BusinessSidebarModal = ({
       sx={{
         "& .MuiDrawer-paper": {
           width: width,
-          maxWidth: "400px",
+          maxWidth: "490px",
           backgroundColor: backgroundColor,
           opacity: opacity,
         },
       }}
     >
       <Box sx={{ width: "100%" }}>
-        <Typography variant="h6" sx={{ textAlign: "center", mt: 2 }}>
+        <Typography
+          variant="h6"
+          sx={{ textAlign: "center", mt: 2, fontWeight: "900" }}
+        >
           {title}
         </Typography>
         <Box sx={{ p: 2 }}>
           {children || (
             <Typography variant="body1" className={styles.BookingContainer}>
-              Select Date and Time slot to book on a service
-              <strong>Select Date</strong>
+              <span className={styles.selectSpan}>
+                {" "}
+                Select Date and Time slot to book on a service
+              </span>
+              <strong className={styles.strong}>Select Date</strong>
             </Typography>
           )}
           <DatePicker />
@@ -77,7 +82,7 @@ const BusinessSidebarModal = ({
           <Button
             variant="contained"
             type="submit"
-            onClick={handleReserveTime}
+            onClick={createBooking}
             sx={{ mt: 2 }}
           >
             Book
