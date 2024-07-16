@@ -1,10 +1,12 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import DatePicker from "./DatePicker";
 import { Dayjs } from "dayjs";
-import React from "react";
+import React, { useState } from "react";
 import TimePicker from "./TimePicker";
 import { styled } from "@mui/system";
 import styles from "./BusinessSidebarModal.module.scss";
+import axios from "axios";
+import { User } from "../../user/types";
 
 interface BusinessSidebarModalProps {
   isOpen: boolean;
@@ -35,10 +37,51 @@ const BusinessSidebarModal = ({
   title = "Book on Service",
   children,
 }: BusinessSidebarModalProps) => {
+  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
+  const [selectedTime, setSelectedTime] = useState<Dayjs | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleDateChange = (newDate: Dayjs | null) => {
+    console.log("Selected time:", newDate?.format("YYYY-MM-DD"));
+    setSelectedDate(newDate);
+    setErrorMessage(null);
+  };
+
   const handleTimeChange = (newTime: Dayjs | null) => {
     console.log("Selected time:", newTime?.format("HH:mm"));
+    setSelectedTime(newTime);
+    setErrorMessage(null);
   };
-  const createBooking = () => {};
+
+  const createBooking = async () => {
+    if (selectedDate && selectedTime) {
+      const businessId = window.location.pathname.split("/")[2];
+      console.log(businessId);
+      const bookingData = {
+        businessId: businessId,
+        date: selectedDate.format("YYYY-MM-DD"),
+        time: selectedTime.format("HH:mm"),
+        userEmail: "a.gobanoff@inbox.lt",
+        userName: "alex",
+        status: "confirmed",
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:3000/bookings",
+          bookingData
+        );
+        console.log("Booking successful:", response.data);
+        onClose();
+      } catch (error) {
+        console.error("Error creating booking:", error);
+        setErrorMessage("Failed to create booking. Please try again.");
+      }
+    } else {
+      setErrorMessage("Date and Time must be selected");
+    }
+  };
+
   return (
     <DrawerStyled
       anchor="right"
@@ -73,15 +116,23 @@ const BusinessSidebarModal = ({
               <strong className={styles.strong}>Select Date</strong>
             </Typography>
           )}
-          <DatePicker />
+          <DatePicker value={selectedDate} onChange={handleDateChange} />
+
           <h2>Select Time Slot</h2>
+          
           <br />
-          <TimePicker value={null} onChange={handleTimeChange} />
+          <TimePicker value={selectedTime} onChange={handleTimeChange} />
+          {errorMessage && (
+            <Typography variant="body2" color="error" sx={{ mt: 2 }}>
+              {errorMessage}
+            </Typography>
+          )}
           <Button
             variant="contained"
             type="submit"
             onClick={createBooking}
             sx={{ mt: 2 }}
+            disabled={!selectedDate || !selectedTime}
           >
             Book
           </Button>
