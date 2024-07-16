@@ -19,7 +19,8 @@ const SimilarBusinessList: React.FC<SimilarBusinessListProps> = ({
         const response = await axios.get<Business[]>(
           `http://localhost:3000/businesses/category/${category}`
         );
-        setSimilarBusinesses(response.data);
+        const firstThreeBusinesses = response.data.slice(0, 3);
+        setSimilarBusinesses(firstThreeBusinesses);
       } catch (error) {
         console.error("Error fetching similar businesses:", error);
       }

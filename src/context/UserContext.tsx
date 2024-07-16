@@ -22,8 +22,8 @@ const UserProvider = ({ children }: PropsWithChildren) => {
 
   const login = (loginResponse: LoginResponse) => {
     console.log(loginResponse);
-    setUser(loginResponse.user); // nustaciau i localstorage user
-    setToken(loginResponse.token); // nustaciau i localstorage token
+    setUser(loginResponse.user); 
+    setToken(loginResponse.token); 
   };
 
   const logout = () => {
