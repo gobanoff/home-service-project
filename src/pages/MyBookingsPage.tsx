@@ -8,6 +8,7 @@ import { LuClock5 } from "react-icons/lu";
 import { LuUser } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
 import { LuCalendar } from "react-icons/lu";
+import buttonStyles from "../components/common/Button.module.scss";
 
 interface Booking {
   _id: string;
@@ -25,9 +26,9 @@ const MyBookingsPage = () => {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [filter, setFilter] = useState<"confirmed" | "pending" | "cancelled">(
-    "confirmed"
-  );
+  const [activeFilter, setActiveFilter] = useState<
+    "confirmed" | "pending" | "cancelled"
+  >("confirmed");
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -66,6 +67,9 @@ const MyBookingsPage = () => {
     fetchBookings();
   }, [email]);
 
+  const handleFilterClick = (filter: "confirmed" | "pending" | "cancelled") => {
+    setActiveFilter(filter);
+  };
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -77,92 +81,109 @@ const MyBookingsPage = () => {
   if (bookings.length === 0) {
     return <div className={styles.noData}>No bookings available</div>;
   }
-  const filteredBookings = bookings.filter(
-    (booking) => booking.status === filter
-  );
 
   return (
     <>
       <div className={styles.myBookings}>
         <h1 className={styles.h1}>My Bookings</h1>
         <div className={styles.statusBar}>
-          <Button onClick={() => setFilter("confirmed")} status>
+          <Button
+            onClick={() => handleFilterClick("confirmed")}
+            className={`${buttonStyles.status} ${
+              activeFilter === "confirmed" ? buttonStyles.active : ""
+            }`}
+          >
             Booked
           </Button>
-          <Button onClick={() => setFilter("pending")} status>
+          <Button
+            onClick={() => handleFilterClick("pending")}
+            className={`${buttonStyles.status} ${
+              activeFilter === "pending" ? buttonStyles.active : ""
+            }`}
+          >
             In-Progress
           </Button>
-          <Button onClick={() => setFilter("cancelled")} status>
+          <Button
+            onClick={() => handleFilterClick("cancelled")}
+            className={`${buttonStyles.status} ${
+              activeFilter === "cancelled" ? buttonStyles.active : ""
+            }`}
+          >
             Completed
           </Button>
         </div>
         <div className={styles.cardList}>
-          {filteredBookings.map((booking) => (
-            <div className={styles.bookingCard} key={booking._id}>
-              <img
-                src={businesses[booking.businessId].imageUrls[0]}
-                alt={businesses[booking.businessId].name}
-                className={styles.image}
-              />
-              <div className={styles.dataList}>
-                <p className={styles.name}>
-                  {businesses[booking.businessId]?.name}
-                </p>
-                <p className={styles.contactPerson}>
-                  <LuUser
-                    style={{
-                      color: " #8056eb",
-                      marginRight: "8px",
-                      fontWeight: "700",
-                      fontSize: "2rem",
-                    }}
-                  />
-                  {businesses[booking.businessId].contactPerson}
-                </p>
-                <p className={styles.address}>
-                  <FiMapPin
-                    style={{
-                      color: "#8056eb",
-                      marginRight: "10px",
-                      fontWeight: "700",
-                      fontSize: "2rem",
-                    }}
-                  />
-                  {businesses[booking.businessId].address}
-                </p>
-                <p className={styles.date}>
-                  <LuCalendar
-                    style={{
-                      color: "#8056eb",
-                      marginRight: "10px",
-                      fontWeight: "700",
-                      fontSize: "2rem",
-                    }}
-                  />
-                  Service on :
-                  <span className={styles.dateSpan}>
-                    {new Date(booking.date).toLocaleDateString("lt-LT", {
-                      year: "numeric",
-                      month: "2-digit",
-                      day: "2-digit",
-                    })}
-                  </span>
-                </p>
-                <p className={styles.time}>
-                  <LuClock5
-                    style={{
-                      color: "#8056eb",
-                      fontWeight: "700",
-                      fontSize: "1.8rem",
-                      marginRight: "10px",
-                    }}
-                  />
-                  Service on :
-                  <span className={styles.timeSpan}> {booking.time} val.</span>
-                </p>
+          {bookings
+            .filter((booking) => booking.status === activeFilter)
+            .map((booking) => (
+              <div className={styles.bookingCard} key={booking._id}>
+                <img
+                  src={businesses[booking.businessId].imageUrls[0]}
+                  alt={businesses[booking.businessId].name}
+                  className={styles.image}
+                />
+                <div className={styles.dataList}>
+                  <p className={styles.name}>
+                    {businesses[booking.businessId]?.name}
+                  </p>
+                  <p className={styles.contactPerson}>
+                    <LuUser
+                      style={{
+                        color: " #8056eb",
+                        marginRight: "8px",
+                        fontWeight: "700",
+                        fontSize: "2rem",
+                      }}
+                    />
+                    {businesses[booking.businessId].contactPerson}
+                  </p>
+                  <p className={styles.address}>
+                    <FiMapPin
+                      style={{
+                        color: "#8056eb",
+                        marginRight: "10px",
+                        fontWeight: "700",
+                        fontSize: "2rem",
+                      }}
+                    />
+                    {businesses[booking.businessId].address}
+                  </p>
+                  <p className={styles.date}>
+                    <LuCalendar
+                      style={{
+                        color: "#8056eb",
+                        marginRight: "10px",
+                        fontWeight: "700",
+                        fontSize: "2rem",
+                      }}
+                    />
+                    Service on :
+                    <span className={styles.dateSpan}>
+                      {new Date(booking.date).toLocaleDateString("lt-LT", {
+                        year: "numeric",
+                        month: "2-digit",
+                        day: "2-digit",
+                      })}
+                    </span>
+                  </p>
+                  <p className={styles.time}>
+                    <LuClock5
+                      style={{
+                        color: "#8056eb",
+                        fontWeight: "700",
+                        fontSize: "1.8rem",
+                        marginRight: "10px",
+                      }}
+                    />
+                    Service on :
+                    <span className={styles.timeSpan}>
+                      {" "}
+                      {booking.time} val.
+                    </span>
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>

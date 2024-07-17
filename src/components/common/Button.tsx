@@ -6,9 +6,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: boolean;
   small?: boolean;
   large?: boolean;
-  special?:boolean;
-  booking?:boolean;
-  status?:boolean;
+  special?: boolean;
+  booking?: boolean;
+  status?: boolean;
+
   // size: "small" | "medium" | "large" TODO
 }
 const Button = ({
@@ -19,6 +20,7 @@ const Button = ({
   special,
   booking,
   status,
+
   ...props
 }: ButtonProps) => {
   return (
@@ -31,10 +33,11 @@ const Button = ({
         special && styles.special,
         booking && styles.booking,
         status && styles.status,
+
         className
       )}
       {...props}
-      >
+    >
       {props.children}
     </button>
   );
@@ -43,6 +46,10 @@ const Button = ({
 Button.propTypes = {
   className: PropTypes.string,
   rounded: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
+  special: PropTypes.bool,
+  booking: PropTypes.bool,
+  status: PropTypes.bool,
 };
-
 export default Button;

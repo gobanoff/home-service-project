@@ -1,12 +1,12 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import DatePicker from "./DatePicker";
-import { Dayjs } from "dayjs";
+import  dayjs,{ Dayjs } from "dayjs";
 import React, { useState } from "react";
 import TimePicker from "./TimePicker";
 import { styled } from "@mui/system";
 import styles from "./BusinessSidebarModal.module.scss";
 import axios from "axios";
-import { User } from "../../user/types";
+
 
 interface BusinessSidebarModalProps {
   isOpen: boolean;
@@ -42,27 +42,36 @@ const BusinessSidebarModal = ({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleDateChange = (newDate: Dayjs | null) => {
-    console.log("Selected time:", newDate?.format("YYYY-MM-DD"));
     setSelectedDate(newDate);
     setErrorMessage(null);
   };
 
   const handleTimeChange = (newTime: Dayjs | null) => {
-    console.log("Selected time:", newTime?.format("HH:mm"));
     setSelectedTime(newTime);
     setErrorMessage(null);
   };
+ // const isDateTimeValid = (): boolean => {
+  //  if (!selectedDate || !selectedTime) return false; 
+  //  const now = dayjs(); 
+  //  const selectedDateTime = dayjs(selectedDate).set({
+  //    hour: selectedTime.hour(),
+   //   minute: selectedTime.minute(),
+    //  second: selectedTime.second(), });
+  //  return selectedDateTime.isAfter(now);  };
 
   const createBooking = async () => {
-    if (selectedDate && selectedTime) {
+    if (selectedDate && selectedTime ) {
       const businessId = window.location.pathname.split("/")[2];
-      console.log(businessId);
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
+      const userEmail = user.email;
+      const userName = user.name;
+
       const bookingData = {
         businessId: businessId,
         date: selectedDate.format("YYYY-MM-DD"),
         time: selectedTime.format("HH:mm"),
-        userEmail: "a.gobanoff@inbox.lt",
-        userName: "alex",
+        userEmail: userEmail,
+        userName: userName,
         status: "confirmed",
       };
 
@@ -119,7 +128,7 @@ const BusinessSidebarModal = ({
           <DatePicker value={selectedDate} onChange={handleDateChange} />
 
           <h2>Select Time Slot</h2>
-          
+
           <br />
           <TimePicker value={selectedTime} onChange={handleTimeChange} />
           {errorMessage && (

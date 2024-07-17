@@ -85,7 +85,6 @@ const BusinessDetailsPage = () => {
             <CiExport style={{ fontWeight: "700", fontSize: "2rem" }} />
           </Button>
           <p className={styles.contactPerson}>
-            
             <LuUser
               style={{
                 marginRight: "8px",
@@ -133,13 +132,18 @@ const BusinessDetailsPage = () => {
         </div>
         <div className={styles.downRightContainer}>
           <Button booking onClick={openModal}>
-            <GiNotebook style={{ fontWeight: "900", fontSize: "1.5rem", marginRight: "10px", }} />
+            <GiNotebook
+              style={{
+                fontWeight: "900",
+                fontSize: "1.5rem",
+                marginRight: "10px",
+              }}
+            />
             <span>Book Appointment</span>
           </Button>
-         <BusinessSidebarModal isOpen={isOpen} onClose={closeModal} />
+          <BusinessSidebarModal isOpen={isOpen} onClose={closeModal} />
           <h3 className={styles.h3}>Similar Business</h3>
           <SimilarBusinessList category={business.category} />
-          
         </div>
       </div>
     </div>

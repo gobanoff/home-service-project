@@ -42,6 +42,14 @@
     color: black;
     background-color: white;
   }
+  &:active {
+    color: black;
+    background-color: white;
+  }
+}
+.active {
+  color: black;
+  background-color: white;
 }
 .large {
   padding: 1rem 1.5rem;
