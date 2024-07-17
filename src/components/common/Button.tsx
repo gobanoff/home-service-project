@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Button.module.scss";
 
@@ -43,13 +43,12 @@ const Button = ({
   );
 };
 
-Button.propTypes = {
-  className: PropTypes.string,
-  rounded: PropTypes.bool,
-  small: PropTypes.bool,
-  large: PropTypes.bool,
-  special: PropTypes.bool,
-  booking: PropTypes.bool,
-  status: PropTypes.bool,
-};
+//Button.propTypes = {
+  //className: PropTypes.string,
+ // rounded: PropTypes.bool,
+  //small: PropTypes.bool,
+  //large: PropTypes.bool,
+ // special: PropTypes.bool,
+ // booking: PropTypes.bool,
+ // status: PropTypes.bool,};
 export default Button;
