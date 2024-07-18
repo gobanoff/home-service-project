@@ -6,7 +6,7 @@ const VerticalCategoryList = () => {
   const { data: categories } = useCategories();
 
   return (
-    <div>
+    <div className={styles.categories}>
       <h2 className={styles.title}>Categories</h2>
       {categories?.map((category) => (
         <CategoryCard key={category.name} category={category} />

@@ -7,7 +7,7 @@ interface TimePickerProps {
   onChange: (newValue: Dayjs | null) => void;
 }
 
-const TimeSlot = styled("div")(({ theme }) => ({
+const TimeSlot = styled("div")({
   padding: "8px",
   width: "calc(100% / 3 - 16px)",
   margin: "4px",
@@ -18,19 +18,30 @@ const TimeSlot = styled("div")(({ theme }) => ({
   userSelect: "none",
   textAlign: "center",
   "&:hover": { color: "white", backgroundColor: "red" },
-
   "&.selected": {
     backgroundColor: "#007bff",
     color: "#fff",
   },
-}));
+  "&.disabled": {
+    backgroundColor: "#e0e0e0",
+    color: "#9e9e9e",
+    cursor: "not-allowed",
+  },
+});
 
 const TimePicker: React.FC<TimePickerProps> = ({ value, onChange }) => {
-  const [selectedTime, setSelectedTime] = React.useState<Dayjs | null>(null);
+  const [selectedTime, setSelectedTime] = React.useState<Dayjs | null>(value);
 
   const handleTimeClick = (time: Dayjs) => {
-    setSelectedTime(time);
-    onChange(time);
+    if (!isTimeDisabled(time)) {
+      setSelectedTime(time);
+      onChange(time);
+    }
+  };
+
+  const isTimeDisabled = (time: Dayjs) => {
+    const now = dayjs();
+    return time.isBefore(now);
   };
 
   const renderTimeSlots = () => {
@@ -47,7 +58,9 @@ const TimePicker: React.FC<TimePickerProps> = ({ value, onChange }) => {
     return timeSlots.map((time, index) => (
       <TimeSlot
         key={index}
-        className={selectedTime?.isSame(time) ? "selected" : ""}
+        className={`${selectedTime?.isSame(time) ? "selected" : ""} ${
+          isTimeDisabled(time) ? "disabled" : ""
+        }`}
         onClick={() => handleTimeClick(time)}
       >
         {time.format("HH:mm")}

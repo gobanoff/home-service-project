@@ -17,7 +17,7 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
     }
   };
   return (
-    <div className={styles.card} onClick={handleCardClick}>
+    <div className={styles.card}>
       {business.imageUrls.length && (
         <img
           src={business.imageUrls[0]}
@@ -30,7 +30,7 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
         <h3 className={styles.name}>{business.name}</h3>
         <p className={styles.contactPerson}>{business.contactPerson}</p>
         <p className={styles.address}>{business.address}</p>
-        <Button>Book now</Button>
+        <Button onClick={handleCardClick}>Book now</Button>
       </div>
     </div>
   );

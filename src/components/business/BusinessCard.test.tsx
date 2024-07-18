@@ -26,6 +26,7 @@ describe("<BusinessCard />", () => {
     expect(screen.getByAltText("Test Business")).toBeInTheDocument();
     expect(screen.getByText("Restaurant")).toBeInTheDocument();
     expect(screen.getByText("Test Business")).toBeInTheDocument();
+    expect(screen.getByText("7:00 AM to 7:00 PM")).toBeInTheDocument();
     expect(screen.getByText("John Doe")).toBeInTheDocument();
     expect(screen.getByText("123 Test Street")).toBeInTheDocument();
     expect(screen.getByText("Book now")).toBeInTheDocument();

@@ -1,11 +1,12 @@
-import * as React from "react";
-import dayjs, { Dayjs } from "dayjs";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import DatePicker from "./DatePicker";
+import  { Dayjs } from "dayjs";
+import React, { useState } from "react";
 import TimePicker from "./TimePicker";
 import { styled } from "@mui/system";
 import styles from "./BusinessSidebarModal.module.scss";
 import axios from "axios";
+
 
 interface BusinessSidebarModalProps {
   isOpen: boolean;
@@ -36,40 +37,30 @@ const BusinessSidebarModal = ({
   title = "Book on Service",
   children,
 }: BusinessSidebarModalProps) => {
-  const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(null);
-  const [selectedTime, setSelectedTime] = React.useState<Dayjs | null>(null);
-  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
+  const [selectedTime, setSelectedTime] = useState<Dayjs | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleDateChange = (newDate: Dayjs | null) => {
     setSelectedDate(newDate);
-    if (newDate && selectedTime) {
-      const combinedDateTime = newDate
-        .hour(selectedTime.hour())
-        .minute(selectedTime.minute());
-      if (combinedDateTime.isBefore(dayjs())) {
-        setSelectedTime(null);
-      }
-    }
     setErrorMessage(null);
   };
 
   const handleTimeChange = (newTime: Dayjs | null) => {
     setSelectedTime(newTime);
-    if (selectedDate && newTime) {
-      const combinedDateTime = selectedDate
-        .hour(newTime.hour())
-        .minute(newTime.minute());
-      if (combinedDateTime.isBefore(dayjs())) {
-        setErrorMessage("You cannot select a past time");
-        setSelectedTime(null);
-      } else {
-        setErrorMessage(null);
-      }
-    }
+    setErrorMessage(null);
   };
+ // const isDateTimeValid = (): boolean => {
+  //  if (!selectedDate || !selectedTime) return false; 
+  //  const now = dayjs(); 
+  //  const selectedDateTime = dayjs(selectedDate).set({
+  //    hour: selectedTime.hour(),
+   //   minute: selectedTime.minute(),
+    //  second: selectedTime.second(), });
+  //  return selectedDateTime.isAfter(now);  };
 
   const createBooking = async () => {
-    if (selectedDate && selectedTime) {
+    if (selectedDate && selectedTime ) {
       const businessId = window.location.pathname.split("/")[2];
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       const userEmail = user.email;
@@ -134,13 +125,7 @@ const BusinessSidebarModal = ({
               <strong className={styles.strong}>Select Date</strong>
             </Typography>
           )}
-          <DatePicker
-            value={selectedDate}
-            onChange={handleDateChange}
-            disablePast= {true}
-            minDate={dayjs()}
-            
-          />
+          <DatePicker value={selectedDate} onChange={handleDateChange} />
 
           <h2>Select Time Slot</h2>
 
