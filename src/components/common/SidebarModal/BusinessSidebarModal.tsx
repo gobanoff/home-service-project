@@ -137,9 +137,8 @@ const BusinessSidebarModal = ({
           <DatePicker
             value={selectedDate}
             onChange={handleDateChange}
-            disablePast= {true}
+            disablePast={true}
             minDate={dayjs()}
-            
           />
 
           <h2>Select Time Slot</h2>
