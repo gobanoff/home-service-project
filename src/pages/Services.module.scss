@@ -16,6 +16,7 @@
   padding-top: 4rem;
 }
 .text {
+  padding: 3rem;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 2rem;
@@ -24,7 +25,12 @@
 }
 .servicePage img {
   height: 15rem;
-  border-radius: 10px;
   width: 20rem;
   padding-top: 2rem;
+  padding-left: 3rem;
+}
+.line {
+  background-color: $primary-color;
+  width: 110rem;
+  height: 5px;
 }

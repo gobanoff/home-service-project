@@ -9,7 +9,7 @@ const Services: React.FC = () => {
         <VotingCategory />
         <VotingBusiness />
       </div>
-      <h1 className={styles.h1}>Mūsų paslaugos</h1>
+      <h1 className={styles.h1}>Mūsų paslaugos:</h1>
       <h2 className={styles.h2}>Valymo Paslaugos</h2>
       <img
         src="https://t4.ftcdn.net/jpg/03/06/99/87/240_F_306998742_5awR6uVsZ8dRNdHHnj0tnm4sGUDBAxQ5.jpg"
@@ -26,6 +26,7 @@ const Services: React.FC = () => {
         viešbučiai ir kitos komercinės erdvės. Specialūs valymo darbai: Po
         statybų ar remonto, langų plovimas, kilimų ir baldų cheminis valymas.
       </p>
+      <div className={styles.line}></div>
       <h2 className={styles.h2}>Dažytojų Paslaugos</h2>
       <img
         src="https://t4.ftcdn.net/jpg/03/05/47/61/240_F_305476114_rMj4TOLvaXvjYQAqbym4YT5njmqFMGY4.jpg"
@@ -47,8 +48,9 @@ const Services: React.FC = () => {
         atsižvelgiant į interjero ar eksterjero ypatybes Specializuotos Dažymo
         Paslaugos Pramoninių patalpų dažymas Sandėlių, gamyklų ir kitų didelių
         objektų dažymas Nestandartinių projektų įgyvendinimas
-      </p>
-      <h2 className={styles.h2}>Elektriko Paslaugo</h2>{" "}
+      </p>{" "}
+      <div className={styles.line}></div>
+      <h2 className={styles.h2}>Elektriko Paslaugos</h2>
       <img
         src="https://media.istockphoto.com/id/121684988/photo/electrician.jpg?s=612x612&w=0&k=20&c=bU7-8GrGsmUw6lp2YT-yHUsoWH_vx5p3S-6-rBfnJ6U="
         alt=""
@@ -70,8 +72,9 @@ const Services: React.FC = () => {
         instaliacijos klaidų taisymas Konsultacijos ir Patarimai Elektros
         sistemų projektavimas ir planavimas Rekomendacijos dėl energijos taupymo
         ir efektyvumo Atsakymas į klientų klausimus ir patarimai
-      </p>
-      <h2 className={styles.h2}>Santechniko Paslaugos</h2>{" "}
+      </p>{" "}
+      <div className={styles.line}></div>
+      <h2 className={styles.h2}>Santechniko Paslaugos</h2>
       <img
         src="https://onecallinsurance.co.uk/assets/images/home_emergency.jpg"
         alt=""
@@ -100,8 +103,9 @@ const Services: React.FC = () => {
         Užtikriname, kad mūsų paslaugos būtų atliktos laiku ir atitiktų Jūsų
         lūkesčius. Susisiekite su mumis šiandien ir mes padėsime Jums išspręsti
         visas santechnikos problemas greitai ir profesionaliai!
-      </p>
-      <h2 className={styles.h2}>Persikraustymo Paslaugos</h2>{" "}
+      </p>{" "}
+      <div className={styles.line}></div>
+      <h2 className={styles.h2}>Persikraustymo Paslaugos</h2>
       <img
         src="https://paslaugos-img.dgn.lt/gallery_12_5791613/siuntu-kroviniu-gabenimas-perkraustymas-ap510-galerija.jpg"
         alt=""
@@ -124,8 +128,9 @@ const Services: React.FC = () => {
         naujoje vietoje. Specialių Daiktų Pervežimas: Siūlome paslaugas
         specialiems daiktams, tokiems kaip fortepijonai, vertingi meno kūriniai
         ar antikvariniai baldai.
-      </p>
-      <h2 className={styles.h2}>Taisymo Paslaugos</h2>{" "}
+      </p>{" "}
+      <div className={styles.line}></div>
+      <h2 className={styles.h2}>Taisymo Paslaugos</h2>
       <img
         src="https://media.istockphoto.com/id/1361116682/photo/plumber-fixing-a-leaking-bathroom-faucet.jpg?s=612x612&w=0&k=20&c=THa1uoYgW4gGz0C8YMqenM58UFY-uD1X79dP3obYLLI="
         alt=""
@@ -151,6 +156,7 @@ const Services: React.FC = () => {
         pasitaikančių gedimų taisymo paslaugas. Mes naudojame tik aukštos
         kokybės dalis ir įrangą.
       </p>
+      <div className={styles.line}></div>
     </div>
   );
 };
