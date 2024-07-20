@@ -1,0 +1,74 @@
+.Voting {
+  text-align: center;
+  max-width: 350px;
+}
+
+.options {
+  margin: 20px 0;
+}
+
+.option {
+  padding-left: 3rem;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2rem;
+  gap: 1rem;
+}
+
+.addoption {
+  display: none;
+  padding-bottom: 2rem;
+}
+
+.addoption input {
+  padding: 5px;
+  margin-right: 10px;
+}
+.category {
+  text-align: left;
+  width: 20%;
+  color: $primary-color;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+.voteBtn {
+  display: none;
+  background-color: rgb(0, 55, 255);
+  width: 3rem;
+  height: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+button {
+  color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  padding: 0.4em 0.8em;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #f7230b;
+}
+.percent {
+  font-weight: 900;
+  font-size: 1rem;
+  width: 20%;
+}
+.votes {
+  font-weight: 900;
+  font-size: 1rem;
+  width: 20%;
+}
+.red {
+  color: #f7230b;
+}

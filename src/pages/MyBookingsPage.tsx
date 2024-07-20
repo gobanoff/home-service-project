@@ -1,13 +1,10 @@
 import styles from "./MyBookingsPage.module.scss";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Business } from "../components/business/types";
 import Button from "../components/common/Button";
-import { LuClock5 } from "react-icons/lu";
-import { LuUser } from "react-icons/lu";
+import { LuClock5, LuUser, LuCalendar } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
-import { LuCalendar } from "react-icons/lu";
 import buttonStyles from "../components/common/Button.module.scss";
 
 interface Booking {
@@ -21,7 +18,6 @@ interface Booking {
 }
 
 const MyBookingsPage = () => {
-  const { email } = useParams<{ email: string }>();
   const [businesses, setBusinesses] = useState<{ [key: string]: Business }>({});
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,6 +28,15 @@ const MyBookingsPage = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
+      const email = user.email;
+
+      if (!email) {
+        setError("Email not found in localStorage");
+        setLoading(false);
+        return;
+      }
+
       try {
         const bookingsResponse = await axios.get<Booking[]>(
           `http://localhost:3000/bookings/user/${email}`
@@ -65,11 +70,12 @@ const MyBookingsPage = () => {
     };
 
     fetchBookings();
-  }, [email]);
+  }, []);
 
   const handleFilterClick = (filter: "confirmed" | "pending" | "cancelled") => {
     setActiveFilter(filter);
   };
+
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
   }
@@ -129,7 +135,7 @@ const MyBookingsPage = () => {
                   <p className={styles.contactPerson}>
                     <LuUser
                       style={{
-                        color: " #8056eb",
+                        color: "#8056eb",
                         marginRight: "8px",
                         fontWeight: "700",
                         fontSize: "2rem",
@@ -176,10 +182,7 @@ const MyBookingsPage = () => {
                       }}
                     />
                     Service on :
-                    <span className={styles.timeSpan}>
-                      {" "}
-                      {booking.time} val.
-                    </span>
+                    <span className={styles.timeSpan}>{booking.time} val.</span>
                   </p>
                 </div>
               </div>

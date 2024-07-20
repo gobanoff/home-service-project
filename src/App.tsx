@@ -12,9 +12,10 @@ import AuthLayout from "./components/layout/AuthLayout";
 import RootLayout from "./components/layout/RootLayout";
 import { UserProvider } from "./context/UserContext";
 import Services from "./pages/Services";
-import MyAccountPage  from "./pages/MyAccountPage";
+import MyAccountPage from "./pages/MyAccountPage";
 import MyBookingsPage from "./pages/MyBookingsPage";
 import BusinessDetailsPage from "./pages/BusinessDetailsPage";
+import { VotingProvider } from "./components/common/VotingContext";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         path: ROUTES.SEARCH_CATEGORY,
         element: <SearchCategory />,
       },
-     
+
       {
         path: ROUTES.MY_ACCOUNT,
         element: <MyAccountPage />,
@@ -73,11 +74,13 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <UserProvider>
-        <SnackbarProvider>
-          <RouterProvider router={router} />
-        </SnackbarProvider>
-      </UserProvider>
+      <VotingProvider>
+        <UserProvider>
+          <SnackbarProvider>
+            <RouterProvider router={router} />
+          </SnackbarProvider>
+        </UserProvider>
+      </VotingProvider>
     </QueryClientProvider>
   );
 };

@@ -6,10 +6,13 @@ import TimePicker from "./TimePicker";
 import { styled } from "@mui/system";
 import styles from "./BusinessSidebarModal.module.scss";
 import axios from "axios";
+import { useVoting } from "./../VotingContext";
 
 interface BusinessSidebarModalProps {
   isOpen: boolean;
   onClose: () => void;
+  category: string;
+  services: string;
   width?: string | number;
   backgroundColor?: string;
   opacity?: number;
@@ -30,6 +33,8 @@ const DrawerStyled = styled(Drawer)(() => ({
 const BusinessSidebarModal = ({
   isOpen,
   onClose,
+  category,
+  services,
   width = "100%",
   backgroundColor = "#ffffff",
   opacity = 1,
@@ -39,6 +44,7 @@ const BusinessSidebarModal = ({
   const [selectedDate, setSelectedDate] = React.useState<Dayjs | null>(null);
   const [selectedTime, setSelectedTime] = React.useState<Dayjs | null>(null);
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const { increaseVote, increaseService } = useVoting();
 
   const handleDateChange = (newDate: Dayjs | null) => {
     setSelectedDate(newDate);
@@ -91,6 +97,20 @@ const BusinessSidebarModal = ({
         );
         console.log("Booking successful:", response.data);
         onClose();
+
+        if (category === "cleaning") increaseVote(0);
+        if (category === "painting") increaseVote(1);
+        if (category === "electric") increaseVote(2);
+        if (category === "shifting") increaseVote(3);
+        if (category === "plumbing") increaseVote(4);
+        if (category === "repair") increaseVote(5);
+
+        if (services === "UAB Valymas") increaseService(0);
+        if (services === "Išsivalyk pats") increaseService(1);
+        if (services === "Moki veži") increaseService(2);
+        if (services === "Elektrikas į namus") increaseService(3);
+        if (services === 'UAB "Dažytoja į namus"') increaseService(4);
+        if (services === "Santechnikos darbai") increaseService(5);
       } catch (error) {
         console.error("Error creating booking:", error);
         setErrorMessage("Failed to create booking. Please try again.");
