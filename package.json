@@ -26,6 +26,7 @@
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.11",
     "formik": "^2.4.6",
+    "mongodb": "^6.8.0",
     "mongoose": "^8.5.1",
     "notistack": "^3.0.1",
     "prop-types": "^15.8.1",
