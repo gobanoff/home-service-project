@@ -4,7 +4,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
 export default defineConfig({
- 
   plugins: [react(), tsconfigPaths()],
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
@@ -16,8 +15,12 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    proxy: {
+      "/email": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+      },
+    },
+  },
 });
-
-
-
- 
