@@ -17,6 +17,7 @@ const BusinessDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const [business, setBusiness] = useState<Business | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const fetchBusiness = async () => {
       try {
@@ -141,7 +142,12 @@ const BusinessDetailsPage = () => {
             />
             <span>Book Appointment</span>
           </Button>
-          <BusinessSidebarModal isOpen={isOpen} onClose={closeModal} />
+          <BusinessSidebarModal
+            isOpen={isOpen}
+            onClose={closeModal}
+            category={business.category}
+            services={business.name}
+          />
           <h3 className={styles.h3}>Similar Business</h3>
           <SimilarBusinessList category={business.category} />
         </div>

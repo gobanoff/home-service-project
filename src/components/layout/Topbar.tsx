@@ -54,11 +54,7 @@ const Topbar = () => {
                 <Link to={ROUTES.MY_ACCOUNT} className={styles.dropdownItem}>
                   My Account
                 </Link>
-                <Link 
-                //to={ ROUTES. MY_BOOKINGS}
-                  to={`/bookings/user/${user.email}`}
-                  className={styles.dropdownItem}
-                >
+                <Link to={ROUTES.MY_BOOKINGS} className={styles.dropdownItem}>
                   My booking
                 </Link>
                 <Link

@@ -1,0 +1,36 @@
+.serviceContainer {
+  display: flex;
+  justify-content: left;
+  gap: 25rem;
+}
+.h1 {
+  color: rgb(119, 103, 138);
+  font-weight: 900;
+  font-size: 2.5rem;
+  padding-top: 4rem;
+}
+.h2 {
+  color: rgb(119, 103, 138);
+  font-size: 1.8rem;
+  font-weight: 900;
+  padding-top: 4rem;
+}
+.text {
+  padding: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 2rem;
+  padding-top: 2rem;
+  color: rgb(120, 113, 124);
+}
+.servicePage img {
+  height: 15rem;
+  width: 20rem;
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
+.line {
+  background-color: $primary-color;
+  width: 110rem;
+  height: 5px;
+}

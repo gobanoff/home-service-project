@@ -7,5 +7,5 @@ export const ROUTES = {
   SEARCH_CATEGORY: "/search/:category",
   DETAILS_PAGE:"/details/:id",
   MY_ACCOUNT: "/account",
-  MY_BOOKINGS: "/bookings/user/:email",
+  MY_BOOKINGS: "/bookings/user",
 };
