@@ -39,7 +39,8 @@ const MyBookingsPage = () => {
 
       try {
         const bookingsResponse = await axios.get<Booking[]>(
-          `http://localhost:3000/bookings/user/${email}`
+          `http://home-service-project-jade.vercel.app/api/mongo/bookings/user/${email}`
+         // `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
@@ -52,7 +53,9 @@ const MyBookingsPage = () => {
         const uniqueBusinessIds = [...new Set(businessIds)];
 
         const businessRequests = uniqueBusinessIds.map((id) =>
-          axios.get<Business>(`http://localhost:3000/businesses/${id}`)
+          axios.get<Business>(`http://home-service-project-jade.vercel.app/api/mongo/businesses/${id}`)
+        //(`http://localhost:3000/businesses/${id}`)
+
         );
 
         const businessesResponses = await Promise.all(businessRequests);
