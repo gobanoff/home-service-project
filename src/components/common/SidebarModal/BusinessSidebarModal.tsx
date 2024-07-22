@@ -167,7 +167,11 @@ const BusinessSidebarModal = ({
           <h2>Select Time Slot</h2>
 
           <br />
-          <TimePicker value={selectedTime} onChange={handleTimeChange} />
+          <TimePicker
+            value={selectedTime}
+            selectedDate={selectedDate}
+            onChange={handleTimeChange}
+          />
           {errorMessage && (
             <Typography variant="body2" color="error" sx={{ mt: 2 }}>
               {errorMessage}
