@@ -13,6 +13,7 @@ interface BusinessSidebarModalProps {
   onClose: () => void;
   category: string;
   services: string;
+  setMessage: React.Dispatch<React.SetStateAction<string | null>>;
   width?: string | number;
   backgroundColor?: string;
   opacity?: number;
@@ -35,6 +36,7 @@ const BusinessSidebarModal = ({
   onClose,
   category,
   services,
+  setMessage,
   width = "100%",
   backgroundColor = "#ffffff",
   opacity = 1,
@@ -96,6 +98,7 @@ const BusinessSidebarModal = ({
           bookingData
         );
         console.log("Booking successful:", response.data);
+        setMessage("Your booking successfully completed !");
         onClose();
 
         if (category === "cleaning") increaseVote(0);
@@ -170,6 +173,7 @@ const BusinessSidebarModal = ({
               {errorMessage}
             </Typography>
           )}
+
           <Button
             variant="contained"
             type="submit"

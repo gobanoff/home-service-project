@@ -17,6 +17,7 @@ const BusinessDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
   const [business, setBusiness] = useState<Business | null>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchBusiness = async () => {
@@ -31,7 +32,13 @@ const BusinessDetailsPage = () => {
     };
 
     fetchBusiness();
-  }, [id]);
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [id, message]);
 
   if (!business) {
     return <div>Loading...</div>;
@@ -43,6 +50,7 @@ const BusinessDetailsPage = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
   return (
     <div className={styles.detailsContainer}>
       <div className={styles.upperContainer}>
@@ -110,6 +118,7 @@ const BusinessDetailsPage = () => {
 
       <div className={styles.downContainer}>
         <div className={styles.downLeftContainer}>
+          {message && <div className={styles.successMessage}>{message}</div>}
           <h2 className={styles.h2}>Description</h2>
           <p className={styles.about}>{business.about}</p>
           <h2 className={styles.h2}>Gallery</h2>
@@ -142,11 +151,13 @@ const BusinessDetailsPage = () => {
             />
             <span>Book Appointment</span>
           </Button>
+
           <BusinessSidebarModal
             isOpen={isOpen}
             onClose={closeModal}
             category={business.category}
             services={business.name}
+            setMessage={setMessage}
           />
           <h3 className={styles.h3}>Similar Business</h3>
           <SimilarBusinessList category={business.category} />

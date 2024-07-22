@@ -1,5 +1,4 @@
-
-.detailsContainer { 
+.detailsContainer {
   display: block;
   padding-right: 150px;
   padding-left: 130px;
@@ -116,4 +115,18 @@
   font-size: 1.5rem;
   font-weight: 900;
   padding-top: 2rem;
+}
+.successMessage {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40rem;
+  height: 5rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background-color: rgb(70, 202, 13);
+  border-radius: 2rem;
+  padding: 1rem;
+  box-shadow: 8px 5px 11px 3px #a9a2a2;
 }
