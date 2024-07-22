@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 interface TimePickerProps {
   value: Dayjs | null;
   onChange: (newValue: Dayjs | null) => void;
-  selectedDate: Dayjs | null; 
+  selectedDate: Dayjs | null;
 }
 
 const TimeSlot = styled("div")({
@@ -30,7 +30,11 @@ const TimeSlot = styled("div")({
   },
 });
 
-const TimePicker: React.FC<TimePickerProps> = ({ value, onChange,selectedDate }) => {
+const TimePicker: React.FC<TimePickerProps> = ({
+  value,
+  onChange,
+  selectedDate,
+}) => {
   const [selectedTime, setSelectedTime] = React.useState<Dayjs | null>(value);
   const now = dayjs();
 
@@ -40,19 +44,18 @@ const TimePicker: React.FC<TimePickerProps> = ({ value, onChange,selectedDate })
       onChange(time);
     }
   };
-const isTimeDisabled = (time: Dayjs) => {
+  const isTimeDisabled = (time: Dayjs) => {
     const today = now.startOf("day");
-    if (selectedDate && selectedDate.isSame(today, 'day')) {
-     
+    if (selectedDate && selectedDate.isSame(today, "day")) {
       return time.isBefore(now);
     }
-    return false; 
+    return false;
   };
   //const isTimeDisabled = (time: Dayjs) => {
-   // const now = dayjs();
-   // return time.isBefore(now);
- // };
- 
+  // const now = dayjs();
+  // return time.isBefore(now);
+  // };
+
   const renderTimeSlots = () => {
     const timeSlots = [];
     const startTime = dayjs().startOf("day").add(8, "hour");
