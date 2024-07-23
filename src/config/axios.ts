@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const baseURL = PROD
   ? "PROD_LINK_TODO"
-  : "http://home-service-project-jade.vercel.app/";
+  : "http://home-service-project-jade.vercel.app/api/mongo";
 // "http://localhost:3000/"; // patikrinama kokia aplinka
 
 const config: AxiosRequestConfig = {
