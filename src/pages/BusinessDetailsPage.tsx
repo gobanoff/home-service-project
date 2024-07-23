@@ -24,7 +24,7 @@ const BusinessDetailsPage = () => {
       try {
         const response = await axios.get<Business>(
           // `http://localhost:3000/businesses/${id}`
-          `/api/businesses/${id}`
+          `https://home-service-project-jade.vercel.app/api/businesses/${id}`
         );
         setBusiness(response.data);
       } catch (error) {
