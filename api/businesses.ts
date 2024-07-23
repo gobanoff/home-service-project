@@ -17,9 +17,9 @@ if (!clientPromise) {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const client = await clientPromise;
-    const db = client.db('test'); // Убедитесь, что название базы данных 'test' соответствует вашей базе данных
+    const db = client.db('test'); 
 
-    const collection = db.collection('businesses'); // Убедитесь, что коллекция 'businesses' существует
+    const collection = db.collection('businesses'); 
     const documents = await collection.find({}).toArray();
 
     res.status(200).json(documents);
