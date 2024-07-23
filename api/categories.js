@@ -5,7 +5,7 @@ let client;
 let clientPromise;
 
 if (!clientPromise) {
-  client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client = new MongoClient(uri);
   clientPromise = client.connect();
 }
 

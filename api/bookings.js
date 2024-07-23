@@ -5,7 +5,7 @@ let client;
 let clientPromise;
 
 if (!clientPromise) {
-  client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client = new MongoClient(uri);
   clientPromise = client.connect();
 }
 
@@ -21,3 +21,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
