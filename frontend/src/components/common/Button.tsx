@@ -43,12 +43,5 @@ const Button = ({
   );
 };
 
-//Button.propTypes = {
-  //className: PropTypes.string,
- // rounded: PropTypes.bool,
-  //small: PropTypes.bool,
-  //large: PropTypes.bool,
- // special: PropTypes.bool,
- // booking: PropTypes.bool,
- // status: PropTypes.bool,};
+
 export default Button;

@@ -94,8 +94,8 @@ const BusinessSidebarModal = ({
 
       try {
         const response = await axios.post(
-          "/api/bookings",
-         // "http://localhost:3000/bookings",
+         // "/api/bookings",
+          "http://localhost:3000/bookings",
           bookingData
         );
         console.log("Booking successful:", response.data);

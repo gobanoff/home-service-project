@@ -5,7 +5,7 @@ import User from "../models/User";
 const router = express.Router();
 
 // Retrieve all users
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     console.log('from users', req.currentUser);
 
