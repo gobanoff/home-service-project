@@ -2,7 +2,7 @@ import { PROD } from "@/consts/environment";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const baseURL = PROD
-  ? "https://home-service-project-jade.vercel.app"
+  ? "https://home-service-project-jade.vercel.app/api"
   : "http://localhost:3000/";
   //"https://home-service-project-jade.vercel.app";
 
