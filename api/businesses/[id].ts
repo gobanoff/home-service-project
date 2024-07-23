@@ -23,15 +23,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const collection = db.collection('businesses'); // Замените 'businesses' на имя вашей коллекции
 
-    const { id } = req.query;
+    const { _id } = req.query;
 
     if (req.method === 'GET') {
       try {
-        if (typeof id !== 'string') {
+        if (typeof _id !== 'string') {
           return res.status(400).json({ message: 'Invalid ID format' });
         }
 
-        const business = await collection.findOne({ _id: new ObjectId(id) });
+        const business = await collection.findOne({ _id: new ObjectId(_id) });
 
         if (!business) {
           return res.status(404).json({ message: 'Business not found' });
