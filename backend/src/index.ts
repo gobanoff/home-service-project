@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/auth', authRoutes);
-app.use('/categories', categoryRoutes);
-app.use('/businesses', businessRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/businesses', businessRoutes);
 app.use('/bookings', bookingRoutes);
 
 app.post('/email', async (req, res) => {
