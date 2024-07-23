@@ -9,5 +9,8 @@
     "parserOptions": {
       "ecmaVersion": "latest"
     },
+    "globals": {
+    "process": "readonly"
+  },
     "rules": {}
   }
