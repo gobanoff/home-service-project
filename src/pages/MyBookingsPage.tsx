@@ -39,7 +39,7 @@ const MyBookingsPage = () => {
 
       try {
         const bookingsResponse = await axios.get<Booking[]>(
-          `http://home-service-project-jade.vercel.app/api/bookings/user/${email}`
+          `/api/bookings/user/${email}`
          // `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
@@ -53,7 +53,7 @@ const MyBookingsPage = () => {
         const uniqueBusinessIds = [...new Set(businessIds)];
 
         const businessRequests = uniqueBusinessIds.map((id) =>
-          axios.get<Business>(`http://home-service-project-jade.vercel.app/api/businesses/${id}`)
+          axios.get<Business>(`/api/businesses/${id}`)
         //(`http://localhost:3000/businesses/${id}`)
 
         );

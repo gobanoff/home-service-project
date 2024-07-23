@@ -17,7 +17,7 @@ const SimilarBusinessList: React.FC<SimilarBusinessListProps> = ({
     const fetchSimilarBusinesses = async () => {
       try {
         const response = await axios.get<Business[]>(
-          `http://home-service-project-jade.vercel.app/api/businesses/category/${category}`
+          `/api/businesses/category/${category}`
          // `http://localhost:3000/businesses/category/${category}`
         );
         const firstThreeBusinesses = response.data.slice(0, 3);

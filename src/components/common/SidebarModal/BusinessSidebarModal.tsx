@@ -94,7 +94,7 @@ const BusinessSidebarModal = ({
 
       try {
         const response = await axios.post(
-          "http://home-service-project-jade.vercel.app/api/bookings",
+          "/api/bookings",
          // "http://localhost:3000/bookings",
           bookingData
         );
