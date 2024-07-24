@@ -7,7 +7,7 @@ const PORT = process.env.PORT ?? 5000;
 
 const connectToDb = async () => {
   try {
-    const url = process.env.MONGO_URI;
+    const url = process.env.MONGODB_URI;
     if (url === undefined) return;
     await mongoose.connect(url);
     console.log("Connected to MongoDB with Mongoose");
