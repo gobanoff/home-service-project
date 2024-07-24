@@ -12,6 +12,14 @@ dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 const app = express();
+const corsOptions = {
+  origin: 'https://home-service-project-jade.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use(cors());
 

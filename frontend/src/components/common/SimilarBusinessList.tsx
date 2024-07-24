@@ -1,4 +1,3 @@
-//import BusinessDetailsPage from "../../pages/BusinessDetailsPage";
 import styles from "./SimilarBusinessList.module.scss";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -15,10 +14,11 @@ const SimilarBusinessList: React.FC<SimilarBusinessListProps> = ({
 
   useEffect(() => {
     const fetchSimilarBusinesses = async () => {
-      try {const apiUrl = process.env.REACT_APP_API_URL;
+      try {
+        const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get<Business[]>(
-          ` ${apiUrl}/businesses/category/${category}`
-         // `http://localhost:3000/businesses/category/${category}`
+          `${apiUrl}/businesses/category/${category}`
+          // `http://localhost:3000/businesses/category/${category}`
         );
         const firstThreeBusinesses = response.data.slice(0, 3);
         setSimilarBusinesses(firstThreeBusinesses);
