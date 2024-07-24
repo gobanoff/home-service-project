@@ -22,9 +22,10 @@ const BusinessDetailsPage = () => {
   useEffect(() => {
     const fetchBusiness = async () => {
       try {
+        const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get<Business>(
-           `http://localhost:3000/businesses/${id}`
-          //`https://home-service-project-jade.vercel.app/api/businesses/${id}`
+          // `http://localhost:3000/businesses/${id}`
+          `${apiUrl}/businesses/${id}`
         );
         setBusiness(response.data);
       } catch (error) {
