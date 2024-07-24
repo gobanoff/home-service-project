@@ -1,8 +1,9 @@
 import { PROD } from "@/consts/environment";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
-const baseURL = PROD ? "https://home-service-project-fw0v5c6qx-alexs-projects-fafa6a1d.vercel.app/api" : "http://localhost:3000/";
-//"https://home-service-project-jade.vercel.app";
+const baseURL = PROD
+  ? "https://home-service-project-jade.vercel.app"
+  : "http://localhost:3000/";
 
 const config: AxiosRequestConfig = {
   baseURL,
