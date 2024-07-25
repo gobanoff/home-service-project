@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const corsOptions = {
-  origin: 'https://home-service-project-aeg0o9ax9-alexs-projects-fafa6a1d.vercel.app', // Replace with your frontend's domain
+  origin: 'https://home-service-project-jade.vercel.app', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
   credentials: true,
