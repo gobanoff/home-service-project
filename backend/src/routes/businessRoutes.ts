@@ -6,7 +6,7 @@ import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/api', async (req, res) => {
   try {
     const businesses = await Business.find();
     res.json(businesses);
