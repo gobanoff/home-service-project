@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import authRoutes from './routes/authRoutes';
 import categoryRoutes from './routes/categoryRoutes';
 import businessRoutes from './routes/businessRoutes';
@@ -12,21 +13,20 @@ dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 const app = express();
-const corsOptions = {
-  origin: 'https://home-service-project-jade.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-};
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use(cors());
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.use('/auth', authRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/businesses', businessRoutes);
 app.use('/bookings', bookingRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));
+});
 
 app.post('/email', async (req, res) => {
   const { to, subject, text, html } = req.body;
