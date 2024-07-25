@@ -2,7 +2,7 @@ import { PROD } from "@/consts/environment";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const baseURL = PROD
-  ? "https://backend-tau-one-98.vercel.app/api/"
+  ? "https://backend-tau-one-98.vercel.app/"
   : "http://localhost:3000/";
 
 const config: AxiosRequestConfig = {
