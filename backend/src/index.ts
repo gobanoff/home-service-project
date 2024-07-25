@@ -15,7 +15,14 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 const app = express();
 app.use(express.json());
 app.use(cors());
+const corsOptions = {
+  origin: 'https://home-service-project-aeg0o9ax9-alexs-projects-fafa6a1d.vercel.app', // Replace with your frontend's domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
+};
 
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
