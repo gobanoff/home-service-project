@@ -2,7 +2,7 @@ import { PROD } from "@/consts/environment";
 import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
 const baseURL = PROD
-  ? "https://data.mongodb-api.com/app/data-doqcyro/endpoint/data/v1/"
+  ? "https://backend-tau-one-98.vercel.app/api/"
   : "http://localhost:3000/";
 
 const config: AxiosRequestConfig = {
