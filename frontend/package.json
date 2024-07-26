@@ -9,11 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest",
-    "coverage": "jest --coverage --watchAll",
-    "dev:backend": "npm run dev --prefix backend",
-    "build:backend": "npm run build --prefix backend",
-    "start:backend": "npm run start --prefix backend",
-    "dev:all": "concurrently \"npm run dev\" \"npm run dev:backend\""
+    "coverage": "jest --coverage --watchAll"
+    
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
