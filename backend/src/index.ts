@@ -15,14 +15,12 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 const app = express();
 app.use(express.json());
 app.use(cors());
-const corsOptions = {
-  origin: 'https://home-service-project-jade.vercel.app', 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
-  credentials: true,
-};
+app.use(
+  cors({
+    origin: 'https://home-service-project-jade.vercel.app',
+  }),
+);
 
-app.use(cors(corsOptions));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
