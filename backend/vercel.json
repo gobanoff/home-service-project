@@ -3,7 +3,7 @@
   "name": "backend",
   "builds": [
     {
-      "src": "backend/src/index.ts",
+      "src": "src/index.ts",
       "use": "@vercel/node",
       "config": {
         "maxLambdaSize": "50mb"
@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/src/index.js"
+      "dest": "src/index.js"
     }
   ],
   "includeFiles": ["backend/src/**/*", "backend/package.json", "backend/node_modules/**/*"]
