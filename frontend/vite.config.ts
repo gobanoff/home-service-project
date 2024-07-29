@@ -19,7 +19,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://home-service-project-jade.vercel.app",
-        //"http://localhost:3000",
+       // "http://localhost:3000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""), 
       },
