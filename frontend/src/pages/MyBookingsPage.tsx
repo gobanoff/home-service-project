@@ -41,7 +41,7 @@ const MyBookingsPage = () => {
         const apiUrl = process.env.REACT_APP_API_URL;
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/api/bookings/user/${email}`
-          // `http://localhost:3000/bookings/user/${email}`
+          // `http://localhost:3000/api/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
@@ -54,8 +54,9 @@ const MyBookingsPage = () => {
         const uniqueBusinessIds = [...new Set(businessIds)];
 
         const businessRequests = uniqueBusinessIds.map(
-          (id) => axios.get<Business>(`${apiUrl}/api/businesses/${id}`)
-          // (`http://localhost:3000/businesses/${id}`)
+          (id) => axios.get<Business>
+          (`${apiUrl}/api/businesses/${id}`)
+          // (`http://localhost:3000/api/businesses/${id}`)
         );
 
         const businessesResponses = await Promise.all(businessRequests);
