@@ -95,7 +95,7 @@ const BusinessSidebarModal = ({
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.post(
-          `${apiUrl}/bookings`,
+          `${apiUrl}/api/bookings`,
           // "http://localhost:3000/bookings",
           bookingData
         );

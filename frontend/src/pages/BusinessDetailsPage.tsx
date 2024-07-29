@@ -25,7 +25,7 @@ const BusinessDetailsPage = () => {
         const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get<Business>(
           // `http://localhost:3000/businesses/${id}`
-          `${apiUrl}/businesses/${id}`
+          `${apiUrl}/api/businesses/${id}`
         );
         setBusiness(response.data);
       } catch (error) {
