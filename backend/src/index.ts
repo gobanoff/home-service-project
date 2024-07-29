@@ -15,6 +15,9 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(cors({
+  origin: 'https://home-service-project-bl0u22btl-alexs-projects-fafa6a1d.vercel.app' // или '*' для разрешения всех источников
+}));
 //app.use(
   //cors({
     //origin: 'https://home-service-project-jade.vercel.app', }),);
