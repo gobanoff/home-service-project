@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "jest",
     "coverage": "jest --coverage --watchAll"
-    
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -38,7 +37,6 @@
     "react-router-dom": "^6.23.1",
     "recharts": "^2.12.7",
     "usehooks-ts": "^3.1.0",
-    "vercel": "^32.3.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -63,6 +61,7 @@
     "ts-jest": "^29.2.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
+    "vercel": "^35.2.1",
     "vite": "^5.2.0",
     "vite-tsconfig-paths": "^4.3.2"
   }
