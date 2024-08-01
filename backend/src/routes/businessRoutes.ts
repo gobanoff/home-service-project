@@ -5,6 +5,18 @@ import Booking from '../models/Booking';
 import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
+let shops = [
+  { id: 1, name: 'My Shop', location: '123 Main St' },
+  { id: 1, name: 'My Shop', location: '123 Main St' },
+  { id: 1, name: 'My Shop', location: '123 Main St' },
+  { id: 1, name: 'My Shop', location: '123 Main St' },
+  { id: 1, name: 'My Shop', location: '125 Main St' },
+];
+
+router.get('/shops', (req, res) => {
+  res.json(shops);
+});
+
 
 router.get('/', async (req, res) => {
   try {
