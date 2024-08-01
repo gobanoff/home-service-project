@@ -23,7 +23,7 @@ let shops = [
   { id: 1, name: "My Shop", location: "125 Main St" }
 ];
 
-app.get('/shops', (req, res) => {
+app.get('/api/shops', (req, res) => {
   res.json(shops);
 });
 
