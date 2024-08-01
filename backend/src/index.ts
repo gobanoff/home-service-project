@@ -15,6 +15,17 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 const app = express();
 app.use(express.json());
 app.use(cors());
+let shops = [
+  { id: 1, name: "My Shop", location: "123 Main St" },
+  { id: 1, name: "My Shop", location: "123 Main St" },
+  { id: 1, name: "My Shop", location: "123 Main St" },
+  { id: 1, name: "My Shop", location: "123 Main St" },
+  { id: 1, name: "My Shop", location: "123 Main St" }
+];
+
+app.get('/shops', (req, res) => {
+  res.json(shops);
+});
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
