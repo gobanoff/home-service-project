@@ -20,7 +20,7 @@ let shops = [
   { id: 1, name: "My Shop", location: "123 Main St" },
   { id: 1, name: "My Shop", location: "123 Main St" },
   { id: 1, name: "My Shop", location: "123 Main St" },
-  { id: 1, name: "My Shop", location: "123 Main St" }
+  { id: 1, name: "My Shop", location: "125 Main St" }
 ];
 
 app.get('/shops', (req, res) => {
