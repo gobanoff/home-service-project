@@ -1,11 +1,11 @@
-import authMiddleware from "../middlewares/authMiddleware";
-import express from "express";
-import User from "../models/User";
+import authMiddleware from '../middlewares/authMiddleware';
+import express from 'express';
+import User from '../models/User';
 
 const router = express.Router();
 
 // Retrieve all users
-router.get('/',  async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     console.log('from users', req.currentUser);
 
