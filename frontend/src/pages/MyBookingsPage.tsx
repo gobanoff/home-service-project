@@ -39,6 +39,10 @@ const MyBookingsPage = () => {
 
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
+        console.log("API URL:", apiUrl);
+        if (!apiUrl) {
+          throw new Error("API URL is not defined");
+        }
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/bookings/user/${email}`
           //`http://localhost:3000/bookings/user/${email}`
@@ -54,8 +58,7 @@ const MyBookingsPage = () => {
         const uniqueBusinessIds = [...new Set(businessIds)];
 
         const businessRequests = uniqueBusinessIds.map(
-          (id) => axios.get<Business>
-          (`${apiUrl}/businesses/${id}`)
+          (id) => axios.get<Business>(`${apiUrl}/businesses/${id}`)
           // (`http://localhost:3000/businesses/${id}`)
         );
 
