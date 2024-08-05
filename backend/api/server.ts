@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import path from 'path';
-import authRoutes from './routes/authRoutes';
-import categoryRoutes from './routes/categoryRoutes';
-import businessRoutes from './routes/businessRoutes';
-import bookingRoutes from './routes/bookingRoutes';
-import { connectToDb, PORT } from './db';
+//import path from 'path';
+import authRoutes from '../src/routes/authRoutes';
+import categoryRoutes from '../src/routes/categoryRoutes';
+import businessRoutes from '../src/routes/businessRoutes';
+import bookingRoutes from '../src/routes/bookingRoutes';
+import { connectToDb, PORT } from '../src/db';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
 
@@ -13,20 +13,18 @@ dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 const app = express();
-app.use(express.json());
+app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+//app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.use('/auth', authRoutes);
 app.use('/categories', categoryRoutes);
 app.use('/businesses', businessRoutes);
 app.use('/bookings', bookingRoutes);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));
-});
+//app.get('*', (req, res) => {
+ // res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));});
 
 app.post('/email', async (req, res) => {
   const { to, subject, text, html } = req.body;
@@ -57,3 +55,4 @@ connectToDb()
   });
 
 
+export default app;
