@@ -25,7 +25,9 @@ app.use('/bookings', bookingRoutes);
 
 //app.get('*', (req, res) => {
  // res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));});
-
+ app.get("/", (req, res) => {
+  res.send("<h1>Hello from the Express server!</h1>");
+});
 app.post('/email', async (req, res) => {
   const { to, subject, text, html } = req.body;
 
