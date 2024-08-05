@@ -71,7 +71,7 @@ const MyBookingsPage = () => {
         setBusinesses(businessesData);
         setLoading(false);
       } catch (error) {
-        setError('<h1 style="color:#8056eb">Failed to fetch data</h1>');
+        setError("Failed to fetch data");
         setLoading(false);
       }
     };
