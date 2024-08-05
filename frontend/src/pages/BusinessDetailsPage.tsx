@@ -43,7 +43,7 @@ const BusinessDetailsPage = () => {
   }, [id, message]);
 
   if (!business) {
-    return <div>Loading...</div>;
+    return <div className={styles.loading}>Loading...</div>;
   }
   const openModal = () => {
     setIsOpen(true);
