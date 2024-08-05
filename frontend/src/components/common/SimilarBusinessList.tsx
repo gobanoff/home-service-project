@@ -15,9 +15,9 @@ const SimilarBusinessList: React.FC<SimilarBusinessListProps> = ({
   useEffect(() => {
     const fetchSimilarBusinesses = async () => {
       try {
-        const apiUrl = import.meta.env.REACT_APP_API_URL;
+        const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get<Business[]>(
-         `${apiUrl}/businesses/category/${category}`
+          `${apiUrl}/businesses/category/${category}`
           // `http://localhost:3000/businesses/category/${category}`
         );
         const firstThreeBusinesses = response.data.slice(0, 3);
