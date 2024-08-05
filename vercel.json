@@ -2,10 +2,10 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/src/index.ts",
+      "src": "backend/api/server.ts",
       "use": "@vercel/node",
       "config": {
-        "maxLambdaSize": "50mb"
+        "distDir": "backend/dist"
       }
     },
     {
@@ -19,7 +19,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/backend/dist/index.js"
+      "dest": "/backend/api/server.ts"
     },
     {
       "src": "/(.*)",
