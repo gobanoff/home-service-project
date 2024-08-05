@@ -26,7 +26,7 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
-  //define: {
-  //  "process.env": process.env,
-//  },
+ // define: {
+   // "process.env": process.env,
+ // },
 });
