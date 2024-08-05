@@ -4,7 +4,7 @@ import EmailForm from "../components/common/EmailForm";
 const MyAccountPage = () => {
   return (
     <div className={styles.accountContainer}>
-      <h1>MyAccountPage</h1> <EmailForm />
+      <h1>MyAccount Page1</h1> <EmailForm />
     </div>
   );
 };
