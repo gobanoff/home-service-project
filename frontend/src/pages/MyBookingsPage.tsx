@@ -38,8 +38,8 @@ const MyBookingsPage = () => {
       }
 
       try {
-        const apiUrl = process.env.REACT_APP_API_URL;
-        console.log("API URL:", apiUrl);
+        const apiUrl = process.env.API_URL;
+
         if (!apiUrl) {
           throw new Error("API URL is not defined");
         }
