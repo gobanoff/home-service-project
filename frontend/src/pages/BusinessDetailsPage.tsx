@@ -29,7 +29,7 @@ const BusinessDetailsPage = () => {
         );
         setBusiness(response.data);
       } catch (error) {
-        console.error("Error fetching businesses data:", error);
+        console.error("<h1 style='color:#8056eb'>Error fetching businesses data</h1>", error);
       }
     };
 
