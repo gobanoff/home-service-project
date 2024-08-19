@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   special?: boolean;
   booking?: boolean;
   status?: boolean;
-
+  pagination?: boolean;
   // size: "small" | "medium" | "large" TODO
 }
 const Button = ({
@@ -20,7 +20,7 @@ const Button = ({
   special,
   booking,
   status,
-
+  pagination,
   ...props
 }: ButtonProps) => {
   return (
@@ -33,7 +33,7 @@ const Button = ({
         special && styles.special,
         booking && styles.booking,
         status && styles.status,
-
+        pagination && styles.pagination,
         className
       )}
       {...props}

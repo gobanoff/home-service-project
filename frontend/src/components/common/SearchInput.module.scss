@@ -6,34 +6,14 @@
   font-size: 1rem;
   border: 2px solid #dee1e2;
   border-radius: 30px;
-  width: 100%;
-
+  width: 29rem;
+  height: 100%;
+  font-size: 1.2rem;
   &:hover {
     border-color: #ccc;
   }
 }
 
-.input {
-  font-size: 14px;
-  border-radius: 6px;
-  line-height: 1.5;
-  padding: 5px 10px;
-  transition: box-shadow 100ms ease-in, border 100ms ease-in,
-    background-color 100ms ease-in;
-  border: 2px solid #dee1e2;
-  color: rgb(14, 14, 16);
-  display: block;
-  outline: none;
-
-  &:hover {
-    border-color: #ccc;
-  }
-
-  &:focus {
-    border-color: #9147ff;
-    background: #fff;
-  }
-}
 @media (max-width: 1450px) {
   .searchInput {
     padding: 1rem;
@@ -50,7 +30,7 @@
 @media (max-width: 800px) {
   .searchInput {
     font-size: 0.8rem;
-    height: 3.0rem;
+    height: 3rem;
   }
 }
 @media (max-width: 600px) {

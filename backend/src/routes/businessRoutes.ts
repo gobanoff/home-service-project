@@ -37,7 +37,64 @@ router.post('/', authMiddleware, async (req, res) => {
     });
   }
 });
+router.get('/search', async (req, res) => {
+  const query = req.query.q;
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 40;
 
+  // Проверяем, что query существует и является строкой, а затем убираем пробелы
+  if (typeof query !== 'string' || query.trim() === '') {
+    return res.json({
+      page,
+      totalPages: 0,
+      totalItems: 0,
+      businesses: [],
+    });
+    //return res.json([]); // Возвращаем пустой массив, если запрос пустой или query не строка
+  }
+
+  const searchQuery = query.trim();
+
+  try {
+    const totalItems = await Business.countDocuments({
+      $or: [
+        { name: { $regex: searchQuery, $options: 'i' } },
+        { about: { $regex: searchQuery, $options: 'i' } },
+        { address: { $regex: searchQuery, $options: 'i' } },
+        { available: { $regex: searchQuery, $options: 'i' } },
+        { category: { $regex: searchQuery, $options: 'i' } },
+        { contactPerson: { $regex: searchQuery, $options: 'i' } },
+        { email: { $regex: searchQuery, $options: 'i' } },
+      ],
+    });
+
+    // Вычисляем общее количество страниц
+    const totalPages = Math.ceil(totalItems / limit);
+    const businesses = await Business.find({
+      $or: [
+        { name: { $regex: searchQuery, $options: 'i' } },
+        { about: { $regex: searchQuery, $options: 'i' } },
+        { address: { $regex: searchQuery, $options: 'i' } },
+        { available: { $regex: searchQuery, $options: 'i' } },
+        { category: { $regex: searchQuery, $options: 'i' } },
+        { contactPerson: { $regex: searchQuery, $options: 'i' } },
+        { email: { $regex: searchQuery, $options: 'i' } },
+      ],
+    })
+      .skip((page - 1) * limit) // Пропускаем записи для предыдущих страниц
+      .limit(limit);
+    res.json({
+      page,
+      totalPages,
+      totalItems,
+      businesses,
+    });
+    // res.json(businesses);
+  } catch (error) {
+    console.error('Error fetching businesses:', error);
+    res.status(500).send('Server error');
+  }
+});
 router.get('/:id', async (req, res) => {
   try {
     const business = await Business.findById(req.params.id);
