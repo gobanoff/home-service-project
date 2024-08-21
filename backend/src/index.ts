@@ -16,9 +16,7 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
-const frontendPath = path.join(__dirname, '../dist');
-app.use(express.static(frontendPath));
-//app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.use(express.static(path.join(__dirname, '../../frontend/dist')));
 
 app.use('/auth', authRoutes);
 app.use('/categories', categoryRoutes);
@@ -26,11 +24,8 @@ app.use('/businesses', businessRoutes);
 app.use('/bookings', bookingRoutes);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));
 });
-//app.get('*', (req, res) => {
-  //res.sendFile(path.join(__dirname, '../../frontend/dist', 'index.html'));
-//});
 app.get('/', (req, res) => {
   res.send('Hello from the Exprass server!');
 });
