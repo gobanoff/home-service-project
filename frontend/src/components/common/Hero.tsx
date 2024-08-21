@@ -25,14 +25,14 @@ const Hero = () => {
       setSearchExecuted(true);
 
       try {
-        const apiUrl = process.env.API_URL;
+        //const apiUrl = process.env.API_URL;
         const response = await axios.get<{
           businesses: Business[];
           page: number;
           totalPages: number;
         }>(
-          //("http://localhost:3000/businesses/search", {
-          `${apiUrl}/businesses/search`,
+          "http://localhost:3000/businesses/search", 
+         // `${apiUrl}/businesses/search`,
           {
             params: { q: query, page, limit: 40 },
           }

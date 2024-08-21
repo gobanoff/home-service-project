@@ -1,10 +1,10 @@
+import styles from "./MyBookingsPage.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Business } from "../components/business/types";
 import Button from "../components/common/Button";
 import { LuClock5, LuUser, LuCalendar } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
-import styles from "./MyBookingsPage.module.scss";
 import buttonStyles from "../components/common/Button.module.scss";
 
 interface Booking {
@@ -27,7 +27,7 @@ const MyBookingsPage = () => {
   >("confirmed");
 
   useEffect(() => {
-    const fetchDataAndUpdateBookings = async () => {
+    const fetchBookings = async () => {
       const user = JSON.parse(localStorage.getItem("user") || "{}");
       const email = user.email;
 
@@ -50,8 +50,11 @@ const MyBookingsPage = () => {
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
         );
+        setBookings(userBookings);
 
-        const businessIds = userBookings.map((booking) => booking.businessId);
+        const businessIds = bookingsResponse.data.map(
+          (booking) => booking.businessId
+        );
         const uniqueBusinessIds = [...new Set(businessIds)];
 
         const businessRequests = uniqueBusinessIds.map((id) =>
@@ -68,27 +71,6 @@ const MyBookingsPage = () => {
         }, {} as { [key: string]: Business });
 
         setBusinesses(businessesData);
-
-        const now = new Date();
-        const updatedBookings = userBookings.map((booking) => {
-          const bookingDateTime = new Date(booking.date);
-          bookingDateTime.setHours(Number(booking.time.split(":")[0]));
-          bookingDateTime.setMinutes(Number(booking.time.split(":")[1]));
-
-          if (booking.status === "confirmed" && now >= bookingDateTime) {
-            booking.status = "pending";
-            axios.put(
-              // `${apiUrl}/bookings/${booking._id}`,
-              `http://localhost:3000/bookings/${booking._id}`,
-              {
-                status: "pending",
-              }
-            );
-          }
-          return booking;
-        });
-
-        setBookings(updatedBookings);
         setLoading(false);
       } catch (error) {
         setError("Failed to fetch data");
@@ -96,38 +78,13 @@ const MyBookingsPage = () => {
       }
     };
 
-    fetchDataAndUpdateBookings();
-
-    const intervalId = setInterval(fetchDataAndUpdateBookings, 60000);
-
-    return () => clearInterval(intervalId);
+    fetchBookings();
   }, []);
 
   const handleFilterClick = (
     filter: "confirmed" | "pending" | "cancelled" | "completed"
   ) => {
     setActiveFilter(filter);
-  };
-
-  const handleSetAsComleted = async (bookingId: string) => {
-    try {
-      await axios.put(
-        // `${apiUrl}/bookings/${bookingId}`,
-        `http://localhost:3000/bookings/${bookingId}`,
-        {
-          status: "completed",
-        }
-      );
-      setBookings((prevBookings) =>
-        prevBookings.map((booking) =>
-          booking._id === bookingId
-            ? { ...booking, status: "completed" }
-            : booking
-        )
-      );
-    } catch (error) {
-      console.error("Failed to update booking status:", error);
-    }
   };
 
   if (loading) {
@@ -237,16 +194,6 @@ const MyBookingsPage = () => {
                     />
                     Service on :
                     <span className={styles.timeSpan}>{booking.time} val.</span>
-                    {booking.status === "pending" && (
-                      <span className={styles.buttonSpan}>
-                        <Button
-                          pagination
-                          onClick={() => handleSetAsComleted(booking._id)}
-                        >
-                          Set as Completed
-                        </Button>
-                      </span>
-                    )}
                   </p>
                 </div>
               </div>
