@@ -22,10 +22,10 @@ const BusinessDetailsPage = () => {
   useEffect(() => {
     const fetchBusiness = async () => {
       try {
-       // const apiUrl = process.env.API_URL;
+        const apiUrl = process.env.API_URL;
         const response = await axios.get<Business>(
-          `http://localhost:3000/businesses/${id}`
-         // `${apiUrl}/businesses/${id}`
+          // `http://localhost:3000/businesses/${id}`
+          `${apiUrl}/businesses/${id}`
         );
         setBusiness(response.data);
       } catch (error) {
