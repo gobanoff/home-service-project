@@ -1,3 +1,71 @@
 .accountContainer {
-  width: 30%;
+  display: flex;
+  gap: 3rem;
+}
+.centerContainer {
+  background: rgba(255, 255, 255, 0.8)
+    url(https://t4.ftcdn.net/jpg/03/06/99/87/240_F_306998742_5awR6uVsZ8dRNdHHnj0tnm4sGUDBAxQ5.jpg);
+  background-blend-mode: overlay;
+  border-radius: 10px;
+  height: 72vh;
+  width: 65%;
+}
+li {
+  font-weight: 700;
+  list-style: none;
+  line-height: 3rem;
+}
+.h1 {
+  padding-left: 40rem;
+  color: rgb(133, 131, 127);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+.userName {
+  color: $primary-color;
+  font-size: 2.5rem;
+}
+aside li {
+  font-size: 1.2rem;
+}
+.rightContainer {
+  width: 20%;
+}
+.bookingList {
+  background-color: rgb(244, 244, 244);
+  line-height: 1.5rem;
+  border: 2px solid #e6dcfd;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: rgba(86, 20, 208, 0.25) 5px 5px 15px;
+  }
+}
+.name {
+  font-weight: 700;
+  padding-right: 15px;
+}
+.category {
+  color: $primary-color;
+}
+.date {
+  font-weight: 700;
+  padding-right: 10px;
+}
+.time {
+  font-weight: 700;
+  padding-right: 15px;
+}
+.h2 {
+  font-size: 1.3rem;
+  padding-bottom: 2rem;
+  span {
+    color: $primary-color;
+    font-weight: 800;
+  }
+}
+.status {
+  color: red;
 }

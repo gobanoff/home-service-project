@@ -56,6 +56,9 @@ const RegisterForm = () => {
               placeholder="Password"
             />
           </div>
+          <div className={styles.field}>
+            <FormikField name="address" type="text" placeholder="Address" />
+          </div>
           <Button type="submit">Register</Button>
           <div className={styles.link}>
             <Link to={ROUTES.LOGIN} className={styles.signUp}>

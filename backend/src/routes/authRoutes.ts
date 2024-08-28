@@ -7,6 +7,7 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   try {
     const user = req.body;
+    user.address = user.address || '';
     const existingUser = await User.findOne({ email: user.email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
@@ -49,5 +50,20 @@ router.post('/login', async (req, res) => {
     return res.status(500).json({ message: 'Error logging in.', error: (err as Error).message });
   }
 });
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, address } = req.body;
 
+    const user = await User.findByIdAndUpdate(id, { name, email, address }, { new: true });
+
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    res.json(user);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
 export default router;

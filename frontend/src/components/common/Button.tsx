@@ -10,7 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   booking?: boolean;
   status?: boolean;
   pagination?: boolean;
-  // size: "small" | "medium" | "large" TODO
+  profile?: boolean;
 }
 const Button = ({
   className,
@@ -21,6 +21,7 @@ const Button = ({
   booking,
   status,
   pagination,
+  profile,
   ...props
 }: ButtonProps) => {
   return (
@@ -34,6 +35,7 @@ const Button = ({
         booking && styles.booking,
         status && styles.status,
         pagination && styles.pagination,
+        profile && styles.profile,
         className
       )}
       {...props}
@@ -42,6 +44,5 @@ const Button = ({
     </button>
   );
 };
-
 
 export default Button;

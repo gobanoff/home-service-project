@@ -1,0 +1,25 @@
+.modalBody {
+  padding: 1rem;
+  width: 64rem;
+  background-color: white;
+  height: 40rem;
+  margin-top: 1.2rem;
+  margin-left: 4rem;
+  display: block;
+  border: 2px solid rgb(225, 197, 234);
+  border-radius: 5px;
+  h2 {
+    padding-left: 27rem;
+  }
+}
+
+.closeButton {
+  font-size: 1.5rem;
+  background: white;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  &:hover {
+    background: #9147ff;
+    color: #fff;
+  }
+}

@@ -3,6 +3,7 @@
     _id: string;
     name: string;
     email: string;
+    address: string | null;
   }
   
   export interface LoginRequest {
