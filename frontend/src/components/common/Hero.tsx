@@ -31,7 +31,7 @@ const Hero = () => {
           page: number;
           totalPages: number;
         }>(
-           "http://localhost:3000/businesses/search",
+          "http://localhost:3000/businesses/search",
           //`${apiUrl}/businesses/search`,
           {
             params: { q: query, page, limit: 40 },

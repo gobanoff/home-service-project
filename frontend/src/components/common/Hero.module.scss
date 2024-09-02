@@ -32,13 +32,17 @@
 .resultsList {
   width: 65rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: left;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 .resultItem {
+  line-height: 1.6rem;
   padding-top: 1rem;
+  strong {
+    font-size: 1.1rem;
+  }
 }
 .resultItem strong {
   color: $primary-color;

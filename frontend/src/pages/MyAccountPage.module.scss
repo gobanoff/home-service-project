@@ -69,3 +69,21 @@ aside li {
 .status {
   color: red;
 }
+.confirmText {
+  color: rgb(5, 248, 30);
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding-left: 5rem;
+}
+.myAccountPagination {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.noResults {
+  color: rgb(255, 64, 0);
+}

@@ -45,7 +45,7 @@ const MyBookingsPage = () => {
         }
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/bookings/user/${email}`
-          //`http://localhost:3000/bookings/user/${email}`
+          // `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
@@ -79,7 +79,7 @@ const MyBookingsPage = () => {
             booking.status = "pending";
             axios.put(
               `${apiUrl}/bookings/${booking._id}`,
-              //`http://localhost:3000/bookings/${booking._id}`,
+              // `http://localhost:3000/bookings/${booking._id}`,
               {
                 status: "pending",
               }

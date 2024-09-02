@@ -20,6 +20,7 @@ const ProfileModal = ({
   updateProfile,
 }: ProfileModalProps) => {
   const [profileData, setProfileData] = useState({ name, email, address });
+  const [showConfirm, setShowConfirm] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -30,8 +31,13 @@ const ProfileModal = ({
   };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setShowConfirm(true);
     updateProfile(profileData.name, profileData.email, profileData.address);
+    setTimeout(() => {
+      setShowConfirm(false);
+    }, 4000);
   };
+
   if (!isOpen) return null;
   return (
     <div className={styles.modalContent}>
@@ -71,11 +77,17 @@ const ProfileModal = ({
               required
             />
           </div>
+
           <div className={styles.saveButton}>
             <Button booking type="submit">
               Edit & Save Your Profile
             </Button>
           </div>
+          {showConfirm && (
+            <p className={styles.confirmText}>
+              You have successfully updated your information
+            </p>
+          )}
         </form>
       </div>
     </div>

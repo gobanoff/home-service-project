@@ -10,6 +10,7 @@ import PaymentModal from "../components/common/MyAccountModals/PaymentModal";
 import NotificationModal from "../components/common/MyAccountModals/NotificationModal";
 import DocumentsModal from "../components/common/MyAccountModals/DocumentsModal";
 import ContactsModal from "../components/common/MyAccountModals/ContactsModal";
+import UpgradeModal from "../components/common/MyAccountModals/UpgradeModal";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../router/consts";
 
@@ -28,7 +29,8 @@ const MyAccountPage = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [openModalType, setOpenModalType] = useState<string | null>(null);
-
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const bookingsPerPage = 8;
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   const [name, setName] = useState<string>(user.name);
   const [email, setEmail] = useState<string>(user.email);
@@ -84,7 +86,7 @@ const MyAccountPage = () => {
       const apiUrl = process.env.API_URL;
       const response = await axios.put(
         `${apiUrl}/auth/${user._id}`,
-        // `http://localhost:3000/auth/${user._id}`,
+        //`http://localhost:3000/auth/${user._id}`,
         {
           name: updatedName,
           email: updatedEmail,
@@ -102,6 +104,16 @@ const MyAccountPage = () => {
       console.error(error);
     }
   };
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const indexOfLastBooking = currentPage * bookingsPerPage;
+  const indexOfFirstBooking = indexOfLastBooking - bookingsPerPage;
+  const currentBookings = bookings.slice(
+    indexOfFirstBooking,
+    indexOfLastBooking
+  );
+
+  const totalPages = Math.ceil(bookings.length / bookingsPerPage);
 
   if (loading) {
     return <div className={styles.loading}>Loading...</div>;
@@ -111,9 +123,6 @@ const MyAccountPage = () => {
     return <div className={styles.error}>{error}</div>;
   }
 
-  if (bookings.length === 0) {
-    return <div className={styles.noData}>No bookings available</div>;
-  }
   const openModal = (type: string) => {
     setOpenModalType(type);
   };
@@ -123,7 +132,7 @@ const MyAccountPage = () => {
   };
 
   return (
-    <>
+    <div>
       <h1 className={styles.h1}>
         Welcome, <span className={styles.userName}>{name} </span>!
       </h1>
@@ -153,7 +162,11 @@ const MyAccountPage = () => {
           </Link>
 
           <li>Community Forum</li>
-          <li>Upgrade Account</li>
+          <li>
+            <Button profile onClick={() => openModal("upgrade")}>
+              Upgrade Account
+            </Button>
+          </li>
 
           <li>
             <Button profile onClick={() => openModal("contacts")}>
@@ -206,13 +219,16 @@ const MyAccountPage = () => {
           {openModalType === "contacts" && (
             <ContactsModal isContactsOpen={true} onClose={closeModal} />
           )}
+          {openModalType === "upgrade" && (
+            <UpgradeModal isUpgradeOpen={true} onClose={closeModal} />
+          )}
         </div>
         <div className={styles.rightContainer}>
           <h1 className={styles.h2}>
             Your <span>Booking</span> History...
           </h1>
           <div className={styles.bookingHistory}>
-            {bookings.map((booking) => (
+            {currentBookings.map((booking) => (
               <div className={styles.bookingList} key={booking._id}>
                 <p className={styles.book}>
                   <span className={styles.name}>
@@ -235,10 +251,29 @@ const MyAccountPage = () => {
                 </p>
               </div>
             ))}
+            <div className={styles.myAccountPagination}>
+              <Button
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+                pagination
+              >
+                Previous
+              </Button>
+              <span className={styles.pageInfo}>
+                Page {currentPage} of {totalPages}
+              </span>
+              <Button
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages || bookings.length === 0}
+                pagination
+              >
+                Next
+              </Button>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
