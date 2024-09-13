@@ -1,12 +1,30 @@
-
 import { useQuery } from "@tanstack/react-query";
-import { fetchBusinesses } from "./api";
-
+import { fetchBusinesses, fetchBusinessesCategory } from "./api";
 export const BUSINESS_KEY = "BUSINESS";
 
-export const useBusinesses = () => {
+interface UseBusinessesParams {
+  page: number;
+  limit: number;
+}
+export const useBusinesses = ({ page, limit }: UseBusinessesParams) => {
   return useQuery({
-    queryKey: [BUSINESS_KEY],
-    queryFn: fetchBusinesses,
+    queryKey: [BUSINESS_KEY, page, limit],
+    queryFn: () => fetchBusinesses(page, limit),
+  });
+};
+interface UseBusinessesCategoryParams {
+  page: number;
+  limit: number;
+  categoryName?: string;
+}
+export const useBusinessesCategory = ({
+  page,
+  limit,
+  categoryName,
+}: UseBusinessesCategoryParams) => {
+  return useQuery({
+    queryKey: [BUSINESS_KEY, page, limit, categoryName],
+    queryFn: () => fetchBusinessesCategory(page, limit, categoryName),
+    enabled: !!categoryName,
   });
 };

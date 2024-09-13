@@ -11,6 +11,7 @@ const BusinessCard = ({ business }: BusinessCardProps) => {
 
   const handleCardClick = () => {
     if (business._id) {
+      window.scrollTo(0, 0);
       navigate(`/details/${business._id}`);
     } else {
       console.error("Business ID is undefined");

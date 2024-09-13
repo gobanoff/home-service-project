@@ -24,7 +24,7 @@ const BusinessDetailsPage = () => {
       try {
         const apiUrl = process.env.API_URL;
         const response = await axios.get<Business>(
-          //`http://localhost:3000/businesses/${id}`
+          // `http://localhost:3000/businesses/${id}`
           `${apiUrl}/businesses/${id}`
         );
         setBusiness(response.data);
@@ -32,7 +32,7 @@ const BusinessDetailsPage = () => {
         console.error("Error fetching businesses data", error);
       }
     };
-
+    window.scrollTo(0, 0);
     fetchBusiness();
     if (message) {
       const timer = setTimeout(() => {
@@ -159,6 +159,7 @@ const BusinessDetailsPage = () => {
             onClose={closeModal}
             category={business.category}
             services={business.name}
+            serviceId={business._id}
             setMessage={setMessage}
           />
           <h3 className={styles.h3}>Similar Business</h3>

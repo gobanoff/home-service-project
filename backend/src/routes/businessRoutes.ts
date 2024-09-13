@@ -6,10 +6,41 @@ import authMiddleware from '../middlewares/authMiddleware';
 
 const router = express.Router();
 
+router.get('/all', async (req, res) => {
+  try {
+    const page = parseInt(req.query.pageas as string, 10) || 1;
+    const limit = parseInt(req.query.limitas as string, 10) || 0;
+    const skip = (page - 1) * limit;
+
+    const business = await Business.find().skip(skip).limit(limit);
+    const total = await Business.countDocuments();
+
+    res.json({
+      business,
+      totalPages: Math.ceil(total / limit),
+      currentPage: page,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching businesses', error: err });
+  }
+});
+
 router.get('/', async (req, res) => {
   try {
-    const businesses = await Business.find();
-    res.json(businesses);
+    const limit = parseInt(req.query.limit as string, 10) || 0;
+    const page = parseInt(req.query.page as string, 10) || 1;
+
+    const skip = (page - 1) * limit;
+
+    const businesses = await Business.find().limit(limit).skip(skip);
+    const totalBusinesses = await Business.countDocuments();
+
+    res.json({
+      businesses,
+      totalBusinesses,
+      totalPages: Math.ceil(totalBusinesses / limit),
+      currentPage: page,
+    });
   } catch (err) {
     res.status(500).json({ message: 'Error fetching businesses', error: err });
   }
@@ -42,7 +73,6 @@ router.get('/search', async (req, res) => {
   const page = Number(req.query.page) || 1;
   const limit = Number(req.query.limit) || 40;
 
-  // Проверяем, что query существует и является строкой, а затем убираем пробелы
   if (typeof query !== 'string' || query.trim() === '') {
     return res.json({
       page,
@@ -50,7 +80,6 @@ router.get('/search', async (req, res) => {
       totalItems: 0,
       businesses: [],
     });
-    //return res.json([]); // Возвращаем пустой массив, если запрос пустой или query не строка
   }
 
   const searchQuery = query.trim();
@@ -68,7 +97,6 @@ router.get('/search', async (req, res) => {
       ],
     });
 
-    // Вычисляем общее количество страниц
     const totalPages = Math.ceil(totalItems / limit);
     const businesses = await Business.find({
       $or: [
@@ -81,7 +109,7 @@ router.get('/search', async (req, res) => {
         { email: { $regex: searchQuery, $options: 'i' } },
       ],
     })
-      .skip((page - 1) * limit) // Пропускаем записи для предыдущих страниц
+      .skip((page - 1) * limit)
       .limit(limit);
     res.json({
       page,
@@ -89,7 +117,6 @@ router.get('/search', async (req, res) => {
       totalItems,
       businesses,
     });
-    // res.json(businesses);
   } catch (error) {
     console.error('Error fetching businesses:', error);
     res.status(500).send('Server error');
@@ -118,7 +145,36 @@ router.get('/details/:id', async (req, res) => {
     res.status(500).json({ message: 'Error fetching business by id', error: err });
   }
 });
+
 router.get('/category/:category', async (req, res) => {
+  const { category } = req.params;
+
+  const pageNumber = parseInt(req.query.page as string, 10) || 1;
+  const pageSize = parseInt(req.query.limit as string, 10) || 0;
+  try {
+    const totalBusinesses = await Business.countDocuments({
+      category: category.toLowerCase(),
+    });
+
+    const filteredBusinesses = await Business.find({
+      category: category.toLowerCase(),
+    })
+      .skip((pageNumber - 1) * pageSize)
+      .limit(pageSize);
+
+    res.json({
+      total: totalBusinesses,
+      page: pageNumber,
+      limit: pageSize,
+      businesses: filteredBusinesses,
+      category,
+    });
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching businesses by category', error: err });
+  }
+});
+
+router.get('/sidelist/:category', async (req, res) => {
   try {
     const filteredBusinesses = await Business.find({
       category: req.params.category.toLowerCase(),
@@ -140,6 +196,27 @@ router.get('/:id/bookings/date/:date', async (req, res) => {
     res.status(500).json({
       message: 'Error fetching bookings for the specified date and business',
       error: err,
+    });
+  }
+});
+router.post('/:id/rating', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const business = await Business.findById(id);
+
+    if (!business) {
+      return res.status(404).json({ message: 'Business not found' });
+    }
+
+    business.rating += 1;
+
+    await business.save();
+
+    res.status(200).json(business);
+  } catch (err) {
+    res.status(500).json({
+      message: 'Error voting for business',
+      error: (err as Error)?.message ?? err,
     });
   }
 });

@@ -1,5 +1,7 @@
 export interface Category {
-    name: string;
-    color: string;
-    url: string;
-  }
+  _id: string;
+  name: string;
+  color: string;
+  rating: number;
+  url: string;
+}

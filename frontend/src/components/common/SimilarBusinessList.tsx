@@ -17,8 +17,8 @@ const SimilarBusinessList: React.FC<SimilarBusinessListProps> = ({
       try {
         const apiUrl = process.env.API_URL;
         const response = await axios.get<Business[]>(
-          `${apiUrl}/businesses/category/${category}`
-          // `http://localhost:3000/businesses/category/${category}`
+          `${apiUrl}/businesses/sidelist/${category}`
+          //`http://localhost:3000/businesses/sidelist/${category}`
         );
         const firstThreeBusinesses = response.data.slice(0, 3);
         setSimilarBusinesses(firstThreeBusinesses);

@@ -17,7 +17,10 @@ const CategoryCard = ({ category, className }: CategoryCardProps) => {
 
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: name });
   const activeCategory = params.category;
-
+  const navigateToCategory = () => {
+    navigate(categoryPath);
+    window.scrollTo(0, 0);
+  };
   return (
     <div
       className={classNames(
@@ -25,7 +28,7 @@ const CategoryCard = ({ category, className }: CategoryCardProps) => {
         activeCategory === name && styles.active,
         className
       )}
-      onClick={() => navigate(categoryPath)}
+      onClick={() => navigateToCategory()}
     >
       <UrlIcon
         url={category.url}

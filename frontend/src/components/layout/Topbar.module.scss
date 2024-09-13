@@ -5,7 +5,6 @@
   padding: 2rem 4rem;
   border-bottom: 2px solid #f1f1f1;
 }
-
 .link {
   color: #323232;
   font-size: 1.2rem;
@@ -32,7 +31,10 @@
   display: inline-block;
 }
 
-.dropdownMenu {width: 9rem;font-weight: 700;font-size: 1rem;
+.dropdownMenu {
+  width: 9rem;
+  font-weight: 700;
+  font-size: 1rem;
   position: absolute;
   top: 100%;
   right: 0;
@@ -62,29 +64,28 @@
     font-size: 0.75rem;
   }
   .leftSide {
-  
-    gap:1.4rem;
+    gap: 1.4rem;
   }
 }
 @media (max-width: 600px) {
   .navigation {
     display: none;
   }
-  .topbar { 
+  .topbar {
     padding: 2rem 2rem;
   }
-  img{
+  img {
     width: 70%;
   }
 }
 @media (max-width: 420px) {
   .leftSide {
-    gap:0.1rem;
+    gap: 0.1rem;
   }
-  .topbar { 
+  .topbar {
     padding: 2rem 1rem;
   }
-  img{
+  img {
     width: 56%;
   }
 }

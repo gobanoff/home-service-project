@@ -13,6 +13,7 @@ interface BusinessSidebarModalProps {
   onClose: () => void;
   category: string;
   services: string;
+  serviceId: string;
   setMessage: React.Dispatch<React.SetStateAction<string | null>>;
   width?: string | number;
   backgroundColor?: string;
@@ -36,6 +37,7 @@ const BusinessSidebarModal = ({
   onClose,
   category,
   services,
+  serviceId,
   setMessage,
   width = "100%",
   backgroundColor = "#ffffff",
@@ -103,19 +105,14 @@ const BusinessSidebarModal = ({
         setMessage("Your booking successfully completed !");
         onClose();
 
-        if (category === "cleaning") increaseVote(0);
-        if (category === "painting") increaseVote(1);
-        if (category === "electric") increaseVote(2);
-        if (category === "shifting") increaseVote(3);
-        if (category === "plumbing") increaseVote(4);
-        if (category === "repair") increaseVote(5);
+        if (category === "cleaning") increaseVote("668dc78acae615a0707e75c4");
+        if (category === "painting") increaseVote("668dc65ecae615a0707e75bb");
+        if (category === "electric") increaseVote("668dc1aacae615a0707e75a1");
+        if (category === "shifting") increaseVote("668dc61ccae615a0707e75ac");
+        if (category === "plumbing") increaseVote("668dc460cae615a0707e75a5");
+        if (category === "repair") increaseVote("668dc74dcae615a0707e75be");
 
-        if (services === "UAB Valymas") increaseService(0);
-        if (services === "Išsivalyk pats") increaseService(1);
-        if (services === "Moki veži") increaseService(2);
-        if (services === "Elektrikas į namus") increaseService(3);
-        if (services === 'UAB "Dažytoja į namus"') increaseService(4);
-        if (services === "Santechnikos darbai") increaseService(5);
+        if (services) increaseService(serviceId);
       } catch (error) {
         console.error("Error creating booking:", error);
         setErrorMessage("Failed to create booking. Please try again.");

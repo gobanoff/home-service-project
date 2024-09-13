@@ -1,35 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import BusinessCard from "./BusinessCard";
-import styles from "./BusinessList.module.scss";
+import styles from "./BusinessCategoryList.module.scss";
 import { Category } from "../category/types";
-import { useBusinesses } from "./hooks";
+import { useBusinessesCategory } from "./hooks";
 import { Business } from "./types";
 import Button from "../common/Button";
 
-interface BusinessListProps {
+interface BusinessCategoryListProps {
   categoryName?: Category["name"];
   className?: string;
 }
 
-const BusinessList: React.FC<BusinessListProps> = ({
+const BusinessCategoryList: React.FC<BusinessCategoryListProps> = ({
   categoryName,
   className,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const limit = 12;
-  const { data } = useBusinesses({
+  const limit = 9;
+
+  const [prevCategoryName, setPrevCategoryName] = useState(categoryName);
+
+  useEffect(() => {
+    if (categoryName !== prevCategoryName) {
+      setCurrentPage(1);
+      setPrevCategoryName(categoryName);
+    }
+  }, [categoryName, prevCategoryName]);
+
+  const { data } = useBusinessesCategory({
     page: currentPage,
     limit,
+    categoryName,
   });
 
   const businesses: Business[] = data?.businesses ?? [];
-  const totalBusinesses: number = data?.totalBusinesses ?? 0;
+  const totalBusinesses: number = data?.total ?? 0;
   const totalPages: number = Math.ceil(totalBusinesses / limit);
-
-  const filteredBusiness = categoryName
-    ? businesses.filter((business) => business.category === categoryName)
-    : businesses;
 
   const handlePageChange = (newPage: number) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -40,7 +47,7 @@ const BusinessList: React.FC<BusinessListProps> = ({
   return (
     <>
       <div className={classNames(styles.container, className)}>
-        {filteredBusiness.map((business) => (
+        {businesses.map((business) => (
           <BusinessCard key={business._id} business={business} />
         ))}
       </div>
@@ -68,4 +75,4 @@ const BusinessList: React.FC<BusinessListProps> = ({
   );
 };
 
-export default BusinessList;
+export default BusinessCategoryList;

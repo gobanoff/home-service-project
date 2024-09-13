@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rounded?: boolean;
   small?: boolean;
   large?: boolean;
+  mini?: boolean;
   special?: boolean;
   booking?: boolean;
   status?: boolean;
@@ -16,6 +17,7 @@ const Button = ({
   className,
   rounded,
   small,
+  mini,
   large,
   special,
   booking,
@@ -30,6 +32,7 @@ const Button = ({
         styles.button,
         rounded && styles.rounded,
         small && styles.small,
+        mini && styles.mini,
         large && styles.large,
         special && styles.special,
         booking && styles.booking,

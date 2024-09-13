@@ -11,30 +11,33 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import Button from "./Button";
 
 const VotingBusiness: React.FC = () => {
-  const { service, increaseService } = useVoting();
+  const { services, totalPages, currentPage, setCurrentPage } = useVoting();
 
-  const totalVotes = service.reduce((sum, option) => sum + option.votes, 0);
-
+  const handlePageChange = (newPage: number) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+  const totalRating = services.reduce(
+    (sum, service) => sum + service.rating,
+    0
+  );
   return (
     <div className={styles.Service}>
       <div className={styles.options}>
-        {service.map((option, index) => (
-          <div key={index} className={styles.option}>
-            <span className={styles.category}>{option.name}</span>
-            <button
-              className={styles.voteBtn}
-              onClick={() => increaseService(index)}
-            >
-              Vote
-            </button>
-            <span className={styles.votes}>{option.votes} votes</span>
-            {totalVotes > 0 && (
+        {services.map((service) => (
+          <div key={service._id} className={styles.option}>
+            <span className={styles.category}>{service.name}</span>
+
+            <span className={styles.votes}>{service.rating}</span>
+            {totalRating > 0 && (
               <span className={styles.percent}>
                 (
                 <span className={styles.red}>
-                  {((option.votes / totalVotes) * 100).toFixed(1)}%
+                  {((service.rating / totalRating) * 100).toFixed(1)}%
                 </span>
                 )
               </span>
@@ -46,18 +49,38 @@ const VotingBusiness: React.FC = () => {
         <input type="text" placeholder="Add new option" />
         <button className={styles.button}>Add</button>
       </div>
-      <h2>Rating of Businesses</h2>
+
+      <div className={styles.businessListPagination}>
+        <Button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          mini
+        >
+          Previous
+        </Button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <Button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          mini
+        >
+          Next
+        </Button>
+      </div>
+      <h2 className={styles.h2}>Rating of Businesses</h2>
       <ResponsiveContainer width="150%" height={350}>
         <BarChart
-          data={service}
+          data={services}
           margin={{ top: 20, right: 0, left: 0, bottom: 20 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" fontWeight={"700"} fontSize={"0.8rem"} />
+          <YAxis fontWeight={"700"} />
           <Tooltip />
           <Legend />
-          <Bar dataKey="votes" fill="#8884d8" />
+          <Bar dataKey="rating" fill="#eaa00c" />
         </BarChart>
       </ResponsiveContainer>
     </div>
