@@ -35,7 +35,7 @@ const BusinessCategoryList: React.FC<BusinessCategoryListProps> = ({
   });
 
   const businesses: Business[] = data?.businesses ?? [];
-  const totalBusinesses: number = data?.total ?? 0;
+  const totalBusinesses: number = data?.total ?? 1;
   const totalPages: number = Math.ceil(totalBusinesses / limit);
 
   const handlePageChange = (newPage: number) => {
