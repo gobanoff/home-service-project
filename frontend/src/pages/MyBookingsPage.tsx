@@ -39,13 +39,12 @@ const MyBookingsPage = () => {
 
       try {
         const apiUrl = process.env.API_URL;
-
         if (!apiUrl) {
           throw new Error("API URL is not defined");
         }
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/bookings/user/${email}`
-          //`http://localhost:3000/bookings/user/${email}`
+          // `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
@@ -57,7 +56,7 @@ const MyBookingsPage = () => {
         const businessRequests = uniqueBusinessIds.map((id) =>
           axios.get<Business>(
             `${apiUrl}/businesses/${id}`
-            // `http://localhost:3000/businesses/${id}`
+            //`http://localhost:3000/businesses/${id}`
           )
         );
 
@@ -188,36 +187,15 @@ const MyBookingsPage = () => {
                     {businesses[booking.businessId]?.name}
                   </p>
                   <p className={styles.contactPerson}>
-                    <LuUser
-                      style={{
-                        color: "#8056eb",
-                        marginRight: "8px",
-                        fontWeight: "700",
-                        fontSize: "2rem",
-                      }}
-                    />
+                    <LuUser className={styles.luser} />
                     {businesses[booking.businessId].contactPerson}
                   </p>
                   <p className={styles.address}>
-                    <FiMapPin
-                      style={{
-                        color: "#8056eb",
-                        marginRight: "10px",
-                        fontWeight: "700",
-                        fontSize: "2rem",
-                      }}
-                    />
+                    <FiMapPin className={styles.mappin} />
                     {businesses[booking.businessId].address}
                   </p>
                   <p className={styles.date}>
-                    <LuCalendar
-                      style={{
-                        color: "#8056eb",
-                        marginRight: "10px",
-                        fontWeight: "700",
-                        fontSize: "2rem",
-                      }}
-                    />
+                    <LuCalendar className={styles.calendar} />
                     Service on :
                     <span className={styles.dateSpan}>
                       {new Date(booking.date).toLocaleDateString("lt-LT", {
@@ -228,14 +206,7 @@ const MyBookingsPage = () => {
                     </span>
                   </p>
                   <p className={styles.time}>
-                    <LuClock5
-                      style={{
-                        color: "#8056eb",
-                        fontWeight: "700",
-                        fontSize: "1.8rem",
-                        marginRight: "10px",
-                      }}
-                    />
+                    <LuClock5 className={styles.clock} />
                     Service on :
                     <span className={styles.timeSpan}>{booking.time} val.</span>
                     {booking.status === "pending" && (

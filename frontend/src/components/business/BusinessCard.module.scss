@@ -51,6 +51,16 @@
   margin: 1rem 0rem;
   color: #a8a8a8;
 }
+@media (max-width: 1450px) {
+  .name {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1200px) {
+  .name {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1000px) {
   .card {
     border-radius: 1rem;
@@ -68,7 +78,7 @@
   }
   .name {
     margin-top: 0.7rem;
-    font-size: 0.7rem;
+    font-size: 0.67rem;
   }
   .address {
     margin-top: 0.7rem;

@@ -70,19 +70,23 @@ const VotingBusiness: React.FC = () => {
         </Button>
       </div>
       <h2 className={styles.h2}>Rating of Businesses</h2>
-      <ResponsiveContainer width="150%" height={350}>
-        <BarChart
-          data={services}
-          margin={{ top: 20, right: 0, left: 0, bottom: 20 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontWeight={"700"} fontSize={"0.8rem"} />
-          <YAxis fontWeight={"700"} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="rating" fill="#eaa00c" />
-        </BarChart>
-      </ResponsiveContainer>
+      <div className={styles.barchart}>
+        <ResponsiveContainer
+        // width="150%" height={350}
+         >
+          <BarChart
+            data={services}
+            margin={{ top: 20, right: 0, left: 0, bottom: 20 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" fontWeight={"700"} />
+            <YAxis fontWeight={"700"} />
+            <Tooltip contentStyle={{ padding: "1rem" }} />
+            <Legend />
+            <Bar dataKey="rating" fill="#eaa00c" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

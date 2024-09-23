@@ -40,13 +40,12 @@ const MyAccountPage = () => {
     const fetchAllMyBookings = async () => {
       try {
         const apiUrl = process.env.API_URL;
-
         if (!apiUrl) {
           throw new Error("API URL is not defined");
         }
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/bookings/user/${email}`
-          //`http://localhost:3000/bookings/user/${email}`
+          // `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email

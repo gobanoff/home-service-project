@@ -2,17 +2,21 @@
   .burgerButton {
     display: none;
   }
+  .burgerNav {
+    display: none;
+  }
 }
 @media (max-width: 600px) {
   .burgerMenu {
     position: relative;
 
     .burgerButton {
+      padding: 0.25rem 0.55rem;
       border-radius: 6px;
       color: rgb(246, 246, 246);
       background-color: #5b24e7;
       border: none;
-      font-size: 19px;
+      font-size: 12px;
       cursor: pointer;
     }
 
@@ -43,7 +47,7 @@
   .burgerMenu {
     .burgerButton {
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 10px;
     }
 
     .burgerNav {

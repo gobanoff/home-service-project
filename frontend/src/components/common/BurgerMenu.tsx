@@ -23,13 +23,21 @@ const BurgerMenu = () => {
 
   return (
     <div className={styles.burgerMenu}>
-      <button onClick={() => setIsOpen(!isOpen)} className={styles.burgerButton}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={styles.burgerButton}
+      >
         ☰
       </button>
       {isOpen && (
         <nav className={styles.burgerNav}>
           {links.map((link) => (
-            <Link key={link.label} to={link.href} className={styles.link} onClick={() => setIsOpen(false)}>
+            <Link
+              key={link.label}
+              to={link.href}
+              className={styles.link}
+              onClick={() => setIsOpen(false)}
+            >
               {link.label}
             </Link>
           ))}

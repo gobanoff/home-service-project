@@ -1,6 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { ROUTES } from "../../router/consts";
 import Button from "../common/Button";
+import BurgerMenu from "../common/BurgerMenu";
 import styles from "./Topbar.module.scss";
 import Logo from "../../assets/logo.svg";
 import { useContext, useState } from "react";
@@ -40,6 +41,7 @@ const Topbar = () => {
             </Link>
           ))}
         </nav>
+        <BurgerMenu />
       </div>
       <div className={styles.rightSide}>
         {user ? (

@@ -18,3 +18,49 @@
     color: $primary-color;
   }
 }
+
+@media (max-width: 1200px) {
+  .card {
+    gap: 0.5rem;
+    padding: 0.6rem;
+    border-radius: 0.8rem;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .card {
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 800px) {
+  .card {
+    gap: 0.25rem;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    gap: 0rem;
+    padding: 0rem;
+    border-radius: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 420px) {
+  .card {
+    gap: 0.1rem;
+    padding: 0rem;
+    border-radius: 0.2rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.5rem;
+  }
+}

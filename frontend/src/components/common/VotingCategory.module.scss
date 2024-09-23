@@ -2,7 +2,10 @@
   text-align: center;
   max-width: 350px;
 }
-
+.barchart {
+  width: 150%;
+  height: 350px;
+}
 .options {
   margin: 20px 0;
 }
@@ -68,4 +71,147 @@ button:hover {
 .red {
   font-size: 1.2rem;
   color: #f7230b;
+}
+@media (max-width: 1450px) {
+  .Voting {
+    max-width: 250px;
+  }
+  .h2 {
+    padding-left: 8rem;
+  }
+}
+@media (max-width: 1200px) {
+  .Voting {
+    max-width: 200px;
+  }
+  .votes {
+    font-size: 1rem;
+  }
+  .red {
+    font-size: 1rem;
+  }
+  .category {
+    width: 40%;
+
+    font-size: 1rem;
+  }
+  .h2 {
+    padding-left: 5rem;
+  }
+  .option {
+    line-height: 0.7rem;
+  }
+}
+@media (max-width: 1000px) {
+  .Voting {
+    max-width: 150px;
+  }
+  .h2 {
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    padding-left: 3rem;
+  }
+  .votes {
+    padding-left: 0.5rem;
+    font-size: 0.7rem;
+  }
+  .percent {
+    font-size: 0.8rem;
+  }
+  .red {
+    font-size: 0.7rem;
+  }
+  .category {
+    width: 30%;
+    font-size: 0.7rem;
+  }
+  .barchart {
+    font-size: 0.7rem;
+    height: 250px;
+  }
+}
+@media (max-width: 800px) {
+  .option {
+    line-height: 0.4rem;
+  }
+  .percent {
+    font-size: 0.6rem;
+  }
+  .red {
+    font-size: 0.5rem;
+  }
+  .votes {
+    font-size: 0.5rem;
+  }
+  .category {
+    font-size: 0.5rem;
+  }
+  .barchart {
+    width: 120%;
+    height: 220px;
+    font-size: 0.5rem;
+  }
+  .h2 {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 600px) {
+  .Voting {
+    max-width: 100px;
+  }
+  .option {
+    line-height: 0.1rem;
+  }
+  .percent {
+    font-size: 0.4rem;
+  }
+  .red {
+    font-size: 0.4rem;
+  }
+  .votes {
+    font-size: 0.4rem;
+  }
+  .category {
+    font-size: 0.4rem;
+  }
+  .barchart {
+    width: 120%;
+    height: 180px;
+    font-size: 0.4rem;
+  }
+  .h2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0rem;
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 420px) {
+  .Voting {
+    max-width: 80px;
+  }
+  .option {
+    line-height: 0rem;
+  }
+  .percent {
+    font-size: 0.3rem;
+  }
+  .red {
+    font-size: 0.3rem;
+  }
+  .votes {
+    font-size: 0.3rem;
+  }
+  .category {
+    font-size: 0.3rem;
+  }
+  .barchart {
+    width: 120%;
+    height: 150px;
+    font-size: 0.2rem;
+  }
+  .h2 {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    font-size: 0.25rem;
+  }
 }

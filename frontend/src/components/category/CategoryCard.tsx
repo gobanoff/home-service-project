@@ -31,7 +31,7 @@ const CategoryCard = ({ category, className }: CategoryCardProps) => {
       onClick={() => navigateToCategory()}
     >
       <UrlIcon
-        url={category.url}
+        url={category.url} 
         style={{ width: 48, height: 48, backgroundColor: category.color }}
       />
       <p>{name}</p>

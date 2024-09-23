@@ -68,6 +68,11 @@
   .subtitle {
     font-size: 1.2rem;
   }
+  .searchContainer {
+    
+    width: 50%;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -75,7 +80,11 @@
     font-size: 1.5rem;
     line-height: 3rem;
   }
-
+  .searchContainer {
+    
+    width: 70%;
+    gap: 1rem;
+  }
   .subtitle {
     font-size: 0.8rem;
   }

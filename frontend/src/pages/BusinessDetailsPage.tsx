@@ -32,8 +32,9 @@ const BusinessDetailsPage = () => {
         console.error("Error fetching businesses data", error);
       }
     };
-    window.scrollTo(0, 0);
+
     fetchBusiness();
+    window.scrollTo(0, 0);
     if (message) {
       const timer = setTimeout(() => {
         setMessage(null);
@@ -70,49 +71,25 @@ const BusinessDetailsPage = () => {
             <span className={styles.chip}>{business.category}</span>
             <h1 className={styles.name}>{business.name}</h1>
             <p className={styles.address}>
-              <FiMapPin
-                style={{
-                  marginRight: "10px",
-                  fontWeight: "700",
-                  fontSize: "2rem",
-                }}
-              />
+              <FiMapPin className={styles.fimappin} />
               {business.address}
             </p>
             <p className={styles.email}>
-              <FaRegEnvelope
-                style={{
-                  marginRight: "18px",
-                  fontWeight: "700",
-                  fontSize: "2rem",
-                }}
-              />
+              <FaRegEnvelope className={styles.envelope} />
               {business.email}
             </p>
           </div>
         </div>
         <div className={styles.rightContainer}>
           <Button special>
-            <CiExport style={{ fontWeight: "700", fontSize: "2rem" }} />
+            <CiExport className={styles.ciexport} />
           </Button>
           <p className={styles.contactPerson}>
-            <LuUser
-              style={{
-                marginRight: "8px",
-                fontWeight: "700",
-                fontSize: "2rem",
-              }}
-            />
+            <LuUser className={styles.luser} />
             <span>{business.contactPerson}</span>
           </p>
           <p className={styles.available}>
-            <LuClock5
-              style={{
-                fontWeight: "700",
-                fontSize: "1.8rem",
-                marginRight: "10px",
-              }}
-            />
+            <LuClock5 className={styles.luclock} />
             <span> Available {business.available}</span>
           </p>
         </div>
@@ -128,29 +105,23 @@ const BusinessDetailsPage = () => {
             <img
               src={business.imageUrls[0]}
               alt={business.name}
-              className={styles.image}
+              className={styles.galImg}
             />
             <img
               src={business.imageUrls[0]}
               alt={business.name}
-              className={styles.image}
+              className={styles.galImg}
             />
             <img
               src={business.imageUrls[0]}
               alt={business.name}
-              className={styles.image}
+              className={styles.galImg}
             />
           </div>
         </div>
         <div className={styles.downRightContainer}>
           <Button booking onClick={openModal}>
-            <GiNotebook
-              style={{
-                fontWeight: "900",
-                fontSize: "1.5rem",
-                marginRight: "10px",
-              }}
-            />
+            <GiNotebook className={styles.notebook} />
             <span>Book Appointment</span>
           </Button>
 

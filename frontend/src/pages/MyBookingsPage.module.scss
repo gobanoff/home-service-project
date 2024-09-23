@@ -32,7 +32,7 @@
   border: 3px solid rgb(226, 223, 220);
   border-radius: 0.5rem;
   padding: 1.3rem;
-  width: 46.4rem;
+  width: 46.2rem;
   height: 20rem;
 }
 .dataList {
@@ -81,7 +81,30 @@
   color: #a49b9b;
   font-size: 1.2rem;
 }
-
+.luser {
+  color: #8056eb;
+  margin-right: 8px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.mappin {
+  color: #8056eb;
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.calendar {
+  color: #8056eb;
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.clock {
+  color: #8056eb;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
 .timeSpan {
   padding-left: 5px;
   color: black;
@@ -114,4 +137,296 @@
   color: $primary-color;
   font-weight: 700;
   font-size: 1.5rem;
+}
+@media (max-width: 1145px) {
+  .myBookings {
+    padding-bottom: 13.35rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 3rem;
+  }
+
+  .statusBar {
+    height: 3.5rem;
+    border-radius: 0.3rem;
+  }
+  .bookingCard {
+    padding: 1.3rem;
+    width: 46.2rem;
+    height: 20rem;
+  }
+  .dataList {
+    width: 65%;
+    padding: 1.2rem;
+  }
+  .bookingCard img {
+    width: 35%;
+    border-radius: 0.6rem;
+  }
+  .name {
+    font-size: 1.3rem;
+  }
+  .address {
+    padding-top: 1.6rem;
+    font-size: 1.2rem;
+  }
+  .contactPerson {
+    padding-top: 1.6rem;
+
+    font-size: 1.2rem;
+  }
+  .date {
+    padding-top: 1.6rem;
+    font-size: 1.2rem;
+  }
+  .time {
+    padding-top: 1.6rem;
+    font-size: 1rem;
+  }
+
+  .timeSpan {
+    padding-left: 5px;
+  }
+  .dateSpan {
+    padding-left: 5px;
+  }
+
+  .buttonSpan {
+    margin-left: 3rem;
+  }
+  .buttonSpan button {
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 930px) {
+  .h1 {
+    font-size: 1.2rem;
+  }
+  .myBookings {
+    padding-bottom: 10rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+  }
+
+  .statusBar {
+    height: 2.5rem;
+    border-radius: 0.3rem;
+  }
+  .bookingCard {
+    padding: 1rem;
+    width: 40.2rem;
+    height: 15rem;
+  }
+  .dataList {
+    width: 70%;
+    padding: 0.8rem;
+  }
+  .bookingCard img {
+    width: 30%;
+    border-radius: 0.5rem;
+  }
+  .name {
+    font-size: 1.1rem;
+  }
+  .address {
+    padding-top: 0.8rem;
+    font-size: 1rem;
+  }
+  .contactPerson {
+    padding-top: 0.8rem;
+    font-size: 1.2rem;
+  }
+  .date {
+    padding-top: 0.8rem;
+    font-size: 1rem;
+  }
+  .time {
+    padding-top: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .timeSpan {
+    padding-left: 5px;
+  }
+  .dateSpan {
+    padding-left: 5px;
+  }
+  .loading {
+    font-size: 1.2rem;
+  }
+  .buttonSpan {
+    margin-left: 1rem;
+  }
+  .buttonSpan button {
+    padding: 0.4rem;
+    font-size: 0.4rem;
+  }
+  .noData {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 700px) {
+  .h1 {
+    font-size: 0.8rem;
+  }
+  .myBookings {
+    padding-bottom: 8rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+  }
+
+  .statusBar {
+    padding: 4px;
+    height: 2rem;
+    border-radius: 0.2rem;
+  }
+  .bookingCard {
+    padding: 0.6rem;
+    height: 8rem;
+  }
+  .dataList {
+    width: 70%;
+    padding: 0.8rem;
+  }
+  .bookingCard img {
+    width: 30%;
+    border-radius: 0.5rem;
+  }
+  .name {
+    font-size: 0.6rem;
+  }
+  .address {
+    padding-top: 0.3rem;
+    font-size: 0.5rem;
+  }
+  .contactPerson {
+    padding-top: 0.3rem;
+    font-size: 0.5em;
+  }
+  .date {
+    padding-top: 0.3rem;
+    font-size: 0.5rem;
+  }
+  .time {
+    padding-top: 0.3rem;
+    font-size: 0.5rem;
+  }
+
+  .timeSpan {
+    padding-left: 5px;
+  }
+  .dateSpan {
+    padding-left: 5px;
+  }
+  .loading {
+    font-size: 1rem;
+  }
+  .buttonSpan {
+    margin-left: 0.4rem;
+  }
+  .buttonSpan button {
+    padding: 0.3rem 0.2rem;
+    font-size: 0.3rem;
+    border-radius: 0.2rem;
+  }
+  .luser {
+    font-size: 0.9rem;
+  }
+  .mappin {
+    font-size: 0.9rem;
+  }
+  .calendar {
+    font-size: 0.9rem;
+  }
+  .clock {
+    font-size: 0.9rem;
+  }
+  .noData {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .h1 {
+    padding-bottom: 0.4rem;
+    font-size: 0.5rem;
+  }
+  .myBookings {
+    padding-bottom: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .statusBar {
+    gap: 0.4rem;
+    height: 1.7rem;
+    border-radius: 0.2rem;
+  }
+  .bookingCard {
+    border: 1px solid rgb(226, 223, 220);
+    padding: 0.4rem;
+    height: 5rem;
+  }
+  .dataList {
+    width: 75%;
+    padding: 0.5rem;
+  }
+  .bookingCard img {
+    width: 25%;
+    border-radius: 0.5rem;
+  }
+  .name {
+    font-size: 0.4rem;
+  }
+  .address {
+    padding-top: 0.2rem;
+    font-size: 0.3rem;
+  }
+  .contactPerson {
+    padding-top: 0.2rem;
+    font-size: 0.3em;
+  }
+  .date {
+    padding-top: 0.2rem;
+    font-size: 0.3rem;
+  }
+  .time {
+    padding-top: 0.1rem;
+    font-size: 0.3rem;
+  }
+
+  .timeSpan {
+    padding-left: 3px;
+  }
+  .dateSpan {
+    padding-left: 3px;
+  }
+  .loading {
+    font-size: 0.5rem;
+  }
+  .buttonSpan {
+    margin-left: 0.8rem;
+  }
+  .buttonSpan button {
+    padding: 0.2rem 0.2rem;
+    font-size: 0.15rem;
+    border-radius: 0.2rem;
+  }
+  .luser {
+    font-size: 0.6rem;
+  }
+  .mappin {
+    font-size: 0.6rem;
+  }
+  .calendar {
+    font-size: 0.6rem;
+  }
+  .clock {
+    font-size: 0.6rem;
+  }
+  .noData {
+    font-size: 0.5rem;
+  }
 }

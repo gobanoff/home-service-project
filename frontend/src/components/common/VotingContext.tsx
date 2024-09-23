@@ -29,11 +29,11 @@ export const VotingProvider: React.FC<{ children: ReactNode }> = ({
   const [totalPages, setTotalPages] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const limit = 10;
-  const apiUrl = process.env.API_URL;
 
   useEffect(() => {
     const fetchOptions = async () => {
       try {
+        const apiUrl = process.env.API_URL;
         const response = await axios.get(
           // "http://localhost:3000/categories"
           `${apiUrl}/categories`
@@ -45,8 +45,9 @@ export const VotingProvider: React.FC<{ children: ReactNode }> = ({
     };
     const fetchServices = async () => {
       try {
+        const apiUrl = process.env.API_URL;
         const responses = await axios.get(
-          // `http://localhost:3000/businesses/all?pageas=${currentPage}&limitas=${limit}`
+          //`http://localhost:3000/businesses/all?pageas=${currentPage}&limitas=${limit}`
           `${apiUrl}/businesses/all?pageas=${currentPage}&limitas=${limit}`
         );
         setTotalPages(responses.data.totalPages);
@@ -64,7 +65,7 @@ export const VotingProvider: React.FC<{ children: ReactNode }> = ({
     try {
       const apiUrl = process.env.API_URL;
       const response = await axios.post(
-        //  `http://localhost:3000/categories/${id}/vote`
+        // `http://localhost:3000/categories/${id}/vote`
         `${apiUrl}/categories/${id}/vote`
       );
       const updatedOption = response.data;
@@ -80,6 +81,7 @@ export const VotingProvider: React.FC<{ children: ReactNode }> = ({
 
   const increaseService = async (id: string) => {
     try {
+      const apiUrl = process.env.API_URL;
       const response = await axios.post(
         // `http://localhost:3000/businesses/${id}/rating`
         `${apiUrl}/businesses/${id}/rating`

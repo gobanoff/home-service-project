@@ -30,3 +30,210 @@
   padding-top: 1rem;
   font-weight: 900;
 }
+@media (max-width: 1800px) {
+  .image {
+    width: 40%;
+  }
+  .card {
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    width: 120%;
+  }
+  .data {
+    width: 60%;
+  }
+  .image img {
+    border-radius: 1rem;
+    width: 9rem;
+    height: 12rem;
+  }
+  .address {
+    padding-top: 1.5rem;
+  }
+  .contactPerson {
+    padding-top: 1.5rem;
+  }
+  .name {
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 1480px) {
+  .image {
+    width: 31%;
+  }
+  .card {
+    gap: 1.5rem;
+    padding-top: 2rem;
+    width: 120%;
+  }
+  .data {
+    width: 60%;
+  }
+  .image img {
+    border-radius: 1rem;
+    width: 7rem;
+    height: 9rem;
+  }
+  .address {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+  .contactPerson {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+  .name {
+    font-size: 0.9rem;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 1200px) {
+  .image {
+    width: 35%;
+  }
+  .card {
+    gap: 1.5rem;
+    padding-top: 2rem;
+    width: 120%;
+  }
+  .data {
+    width: 60%;
+  }
+  .image img {
+    border-radius: 1rem;
+    width: 6rem;
+    height: 8rem;
+  }
+  .address {
+    font-size: 0.7rem;
+    padding-top: 0.9rem;
+  }
+  .contactPerson {
+    font-size: 0.7rem;
+    padding-top: 0.9rem;
+  }
+  .name {
+    font-size: 0.8rem;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .image {
+    width: 32%;
+  }
+  .card {
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    width: 130%;
+  }
+  .data {
+    width: 70%;
+  }
+  .image img {
+    border-radius: 0.5rem;
+    width: 5rem;
+    height: 6.7rem;
+  }
+  .address {
+    font-size: 0.6rem;
+    padding-top: 0.8rem;
+  }
+  .contactPerson {
+    font-size: 0.6rem;
+    padding-top: 0.8rem;
+  }
+  .name {
+    font-size: 0.6rem;
+    padding-top: 0.7rem;
+  }
+}
+@media (max-width: 800px) {
+  .image {
+    width: 32%;
+  }
+  .card {
+    gap: 1rem;
+    padding-top: 0.5rem;
+    width: 130%;
+  }
+  .data {
+    width: 70%;
+  }
+  .image img {
+    border-radius: 0.5rem;
+    width: 4rem;
+    height: 5rem;
+  }
+  .address {
+    font-size: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .contactPerson {
+    font-size: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .name {
+    font-size: 0.5rem;
+    padding-top: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .image {
+    width: 30%;
+  }
+  .card {
+    gap: 0.5rem;
+    padding-top: 0.4rem;
+    width: 130%;
+  }
+  .data {
+    width: 70%;
+  }
+  .image img {
+    border-radius: 0.2rem;
+    width: 2.2rem;
+    height: 3rem;
+  }
+  .address {
+    font-size: 0.3rem;
+    padding-top: 0.2rem;
+  }
+  .contactPerson {
+    font-size: 0.3rem;
+    padding-top: 0.2rem;
+  }
+  .name {
+    font-size: 0.3rem;
+    padding-top: 0.2rem;
+  }
+}
+@media (max-width: 420px) {
+  .image {
+    width: 30%;
+  }
+  .card {
+    gap: 0.5rem;
+    padding-top: 0.2rem;
+    width: 130%;
+  }
+  .data {
+    width: 70%;
+  }
+  .image img {
+    border-radius: 0.2rem;
+    width: 1.5rem;
+    height: 2rem;
+  }
+  .address {
+    font-size: 0.2rem;
+    padding-top: 0.2rem;
+  }
+  .contactPerson {
+    font-size: 0.2rem;
+    padding-top: 0.2rem;
+  }
+  .name {
+    font-size: 0.2rem;
+    padding-top: 0.2rem;
+  }
+}

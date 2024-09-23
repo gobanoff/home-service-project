@@ -56,49 +56,45 @@
 
 @media (max-width: 800px) {
   .card {
-    width: 120px;
-    height: 80px;
-    gap: 0.4rem;
-
-    .name {
-      font-size: 0.75rem;
-    }
+    width: 90px;
+    height: 65px;
+    gap: 0.1rem;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  .container {
+    gap: 0.45rem;
   }
 }
 
 @media (max-width: 600px) {
   .card {
-    width: 60px;
-    height: 45px;
-    height: 60px;
-    padding: 0.5rem;
-
-    .name {
-      font-size: 0.5rem;
-    }
-  }
-
-  .container {
-    padding: 0.5;
-    margin-top: 3rem;
-    gap: 0.4rem;
-  }
-}
-
-@media (max-width: 420px) {
-  .card {
-    width: 40px;
-    height: 35px;
+    width: 45px;
+    height: 40px;
     padding: 0.4rem;
-
-    .name {
-      font-size: 0.32rem;
-    }
+    font-size: 0.45rem;
+    gap: 0.1rem;
   }
 
   .container {
     padding: 0.5;
     margin-top: 2rem;
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .card {
+    width: 35px;
+    height: 28px;
+    padding: 0.2rem;
+    font-size: 0.3rem;
+    gap: 0rem;
+  }
+
+  .container {
+    padding: 0.5;
+    margin-top: 1rem;
     gap: 0.2rem;
   }
 }

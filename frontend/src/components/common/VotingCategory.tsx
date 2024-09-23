@@ -41,19 +41,23 @@ const VotingCategory: React.FC = () => {
         <button className={styles.button}>Add</button>
       </div>
       <h2 className={styles.h2}>Category Rating</h2>
-      <ResponsiveContainer width="150%" height={350}>
-        <BarChart
-          data={options}
-          margin={{ top: 20, right: 0, left: 0, bottom: 20 }}
+      <div className={styles.barchart}>
+        <ResponsiveContainer 
+       // width="150%" height={350}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontWeight={"700"} />
-          <YAxis fontWeight={"700"} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="rating" fill="#eaa00c" />
-        </BarChart>
-      </ResponsiveContainer>
+          <BarChart
+            data={options}
+            margin={{ top: 20, right: 0, left: 0, bottom: 20 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" fontWeight={"700"} />
+            <YAxis fontWeight={"700"} />
+            <Tooltip contentStyle={{ padding: "1rem" }} />
+            <Legend />
+            <Bar dataKey="rating" fill="#eaa00c" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
