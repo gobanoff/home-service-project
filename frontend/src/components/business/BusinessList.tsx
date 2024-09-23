@@ -24,7 +24,7 @@ const BusinessList: React.FC<BusinessListProps> = ({
   });
 
   const businesses: Business[] = data?.businesses ?? [];
-  const totalBusinesses: number = data?.totalBusinesses ?? 0;
+  const totalBusinesses: number = data?.totalBusinesses ?? 1;
   const totalPages: number = Math.ceil(totalBusinesses / limit);
 
   const filteredBusiness = categoryName
