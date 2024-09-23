@@ -150,7 +150,7 @@ router.get('/category/:category', async (req, res) => {
   const { category } = req.params;
 
   const pageNumber = parseInt(req.query.page as string, 10) || 1;
-  const pageSize = parseInt(req.query.limit as string, 10) || 0;
+  const pageSize = parseInt(req.query.limit as string, 10) || 1;
   try {
     const totalBusinesses = await Business.countDocuments({
       category: category.toLowerCase(),
