@@ -77,6 +77,9 @@
 .pagination {
   font-size: 0.65rem;
 }
+.account {
+  font-size: 0.65rem;
+}
 .profile {
   padding-left: 0;
   font-size: 1.2rem;
@@ -130,7 +133,7 @@
     padding: 0px 0px 0px 0px;
     font-size: 0.8rem;
   }
-  .pagination {
+  .account {
     padding: 0.4rem 0.7rem;
     font-size: 0.5rem;
     border-radius: 0.35rem;
@@ -170,7 +173,7 @@
     padding: 0px 0px 0px 0px;
     font-size: 0.6rem;
   }
-  .pagination {
+  .account {
     padding: 0.4rem 0.7rem;
     font-size: 0.5rem;
     border-radius: 0.35rem;
@@ -212,9 +215,9 @@
     padding: 0px 0px 0px 0px;
     font-size: 0.5rem;
   }
-  .pagination {
+  .account {
     padding: 0.25rem 0.4rem;
-    font-size: 0.3rem;
+    font-size: 0.4rem;
     border-radius: 0.25rem;
   }
   .confirm {
@@ -227,8 +230,8 @@
 @media (max-width: 600px) {
   .rounded {
     border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
   }
   .large {
     padding: 0.6rem 1.1rem;
@@ -259,9 +262,9 @@
     padding: 0px 0px 0px 0px;
     font-size: 0.35rem;
   }
-  .pagination {
-    padding: 0.17rem 0.23rem;
-    font-size: 0.18rem;
+  .account {
+    padding: 0.23rem 0.28rem;
+    font-size: 0.3rem;
     border-radius: 0.18rem;
   }
   .confirm {
@@ -280,8 +283,8 @@
   }
   .rounded {
     border-radius: 50%;
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
   .large {
     padding: 0.5rem 0.7rem;
@@ -311,9 +314,9 @@
     padding: 0px 0px 0px 0px;
     font-size: 0.25rem;
   }
-  .pagination {
-    padding: 0.15rem 0.2rem;
-    font-size: 0.1rem;
+  .account {
+    padding: 0.2rem 0.25rem;
+    font-size: 0.25rem;
     border-radius: 0.15rem;
   }
   .confirm {
@@ -321,5 +324,8 @@
     font-size: 0.1rem;
     width: 2.5rem;
     height: 0.5rem;
+  }
+  .pagination {
+    font-size: 0.4rem;
   }
 }

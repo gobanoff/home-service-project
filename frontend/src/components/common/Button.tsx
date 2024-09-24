@@ -12,6 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   pagination?: boolean;
   profile?: boolean;
   confirm?: boolean;
+  account?: boolean;
 }
 const Button = ({
   className,
@@ -25,6 +26,7 @@ const Button = ({
   pagination,
   profile,
   confirm,
+  account,
   ...props
 }: ButtonProps) => {
   return (
@@ -41,6 +43,7 @@ const Button = ({
         pagination && styles.pagination,
         profile && styles.profile,
         confirm && styles.confirm,
+        account && styles.account,
         className
       )}
       {...props}

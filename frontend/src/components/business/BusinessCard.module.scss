@@ -58,7 +58,7 @@
 }
 @media (max-width: 1200px) {
   .name {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 @media (max-width: 1000px) {
@@ -73,8 +73,12 @@
 }
 @media (max-width: 800px) {
   .card {
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     height: 300px;
+  }
+  .image {
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
   }
   .name {
     margin-top: 0.7rem;
@@ -95,8 +99,12 @@
 }
 @media (max-width: 600px) {
   .card {
-    border-radius: 1rem;
+    border-radius: 0.6rem;
     height: 250px;
+  }
+  .image {
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
   }
   .name {
     margin-top: 0.5rem;
@@ -120,8 +128,12 @@
 }
 @media (max-width: 420px) {
   .card {
-    border-radius: 0.6rem;
+    border-radius: 0.4rem;
     height: 150px;
+  }
+  .image {
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
   }
   .name {
     margin-top: 0.3rem;

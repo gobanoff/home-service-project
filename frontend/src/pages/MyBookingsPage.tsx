@@ -56,7 +56,7 @@ const MyBookingsPage = () => {
         const businessRequests = uniqueBusinessIds.map((id) =>
           axios.get<Business>(
             `${apiUrl}/businesses/${id}`
-            // `http://localhost:3000/businesses/${id}`
+            //  `http://localhost:3000/businesses/${id}`
           )
         );
 

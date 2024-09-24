@@ -39,41 +39,41 @@ Follow these instructions to run the project locally:
 
 2. Install dependencies for both backend and frontend:
 
-# Navigate to the backend directory:
+### Navigate to the backend directory:
 cd home-service-project/backend
 npm install
 
-# Navigate to the frontend directory:
+### Navigate to the frontend directory:
 cd ../frontend
 npm install
 
 ## Running the Project:
 To run the project on your local machine, use the following steps:
 
-# Start the backend server:
+### Start the backend server:
 cd backend
 npm run dev
 
-# Start the frontend server:
+### Start the frontend server:
 cd frontend
 npm run dev
 Open your browser and navigate to: http://localhost:5173
 
 ## NPM Scripts
 
-# Run the project in development mode:
+### Run the project in development mode:
 npm run dev
 
-# Build the project:
+### Build the project:
 npm run build
 
-# Lint the code:
+### Lint the code:
 npm run lint
 
-# Run tests:
+### Run tests:
 npm run test
 
-# Check test coverage:
+### Check test coverage:
 npm run coverage
 
 License

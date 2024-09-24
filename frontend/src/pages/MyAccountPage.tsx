@@ -45,7 +45,7 @@ const MyAccountPage = () => {
         }
         const bookingsResponse = await axios.get<Booking[]>(
           `${apiUrl}/bookings/user/${email}`
-          // `http://localhost:3000/bookings/user/${email}`
+          //  `http://localhost:3000/bookings/user/${email}`
         );
         const userBookings = bookingsResponse.data.filter(
           (booking) => booking.userEmail === email
@@ -57,7 +57,7 @@ const MyAccountPage = () => {
         const businessRequests = uniqueBusinessIds.map((id) =>
           axios.get<Business>(
             `${apiUrl}/businesses/${id}`
-            // `http://localhost:3000/businesses/${id}`
+            //  `http://localhost:3000/businesses/${id}`
           )
         );
         const businessesResponses = await Promise.all(businessRequests);
@@ -254,7 +254,7 @@ const MyAccountPage = () => {
               <Button
                 onClick={() => paginate(currentPage - 1)}
                 disabled={currentPage === 1}
-                pagination
+                account
               >
                 Previous
               </Button>
@@ -264,7 +264,7 @@ const MyAccountPage = () => {
               <Button
                 onClick={() => paginate(currentPage + 1)}
                 disabled={currentPage === totalPages || bookings.length === 0}
-                pagination
+                account
               >
                 Next
               </Button>

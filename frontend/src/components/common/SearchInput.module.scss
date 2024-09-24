@@ -36,20 +36,22 @@
 @media (max-width: 800px) {
   .searchInput {
     font-size: 0.8rem;
-    height: 3rem; width: 17rem;
+    height: 3rem;
+    width: 17rem;
   }
 }
 @media (max-width: 600px) {
   .searchInput {
-    font-size: 0.8rem;
-    height: 2.5rem;width: 11rem;
+    font-size: 0.7rem;
+    height: 2rem;
+    width: 11rem;
   }
 }
 @media (max-width: 420px) {
   .searchInput {
-    width: 150px;
-    height: 30px;
-    font-size: 0.6rem;
-    height: 2rem;
+    padding: 0.7rem;
+    width: 10rem;
+    font-size: 0.5rem;
+    height: 1.5rem;
   }
 }

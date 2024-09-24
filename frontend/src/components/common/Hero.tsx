@@ -89,7 +89,7 @@ const Hero = () => {
         <SearchInput value={query} onChange={(e) => setQuery(e.target.value)} />
         <Button rounded onClick={() => handleSearchClick(1)} disabled={loading}>
           <div>
-            <CiSearch fontSize={24} />
+            <CiSearch className={styles.cisearch} />
           </div>
         </Button>
       </div>
