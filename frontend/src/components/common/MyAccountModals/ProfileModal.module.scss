@@ -63,3 +63,316 @@
   padding-left: 18rem;
   padding-top: 2rem;
 }
+@media (max-width: 1850px) {
+  .modalBody {
+    padding: 0.8rem;
+    width: 45rem;
+    height: 35rem;
+    margin-top: 1.2rem;
+    margin-left: 3rem;
+    h2 {
+      font-size: 1.3rem;
+      padding-left: 18rem;
+    }
+  }
+  .formGroup {
+    gap: 3rem;
+    padding-top: 3rem;
+
+    label {
+      font-size: 2rem;
+    }
+    input {
+      padding: 0.7rem;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      width: 25rem;
+      height: 3rem;
+    }
+  }
+  .saveButton {
+    margin-top: 2rem;
+    margin-left: 9rem;
+  }
+  .closeButton {
+    font-size: 1.5rem;
+  }
+  .profileWarning {
+    padding-top: 0.5rem;
+    padding-left: 17rem;
+  }
+  .confirmText {
+    font-size: 1.1rem;
+    padding-left: 11rem;
+    padding-top: 2rem;
+  }
+}
+@media (max-width: 1480px) {
+  .modalBody {
+    padding: 0.8rem;
+    width: 33rem;
+    height: 28rem;
+    margin-top: 1.2rem;
+    margin-left: 3rem;
+    h2 {
+      font-size: 1.3rem;
+      padding-left: 11rem;
+    }
+  }
+  .formGroup {
+    gap: 2rem;
+    padding-top: 2rem;
+
+    label {
+      font-size: 1.5rem;
+    }
+    input {
+      padding: 0.7rem;
+      font-size: 1.2rem;
+      width: 20rem;
+      height: 2.5rem;
+    }
+  }
+  .saveButton {
+    margin-top: 1.5rem;
+    margin-left: 7rem;
+  }
+  .closeButton {
+    font-size: 1.5rem;
+  }
+  .profileWarning {
+    padding-top: 0.5rem;
+    padding-left: 10rem;
+  }
+  .confirmText {
+    font-size: 0.9rem;
+    padding-left: 6rem;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 1200px) {
+  .modalBody {
+    padding: 0.7rem;
+    width: 29rem;
+    height: 25rem;
+    margin-top: 1.2rem;
+    margin-left: 2rem;
+    h2 {
+      font-size: 1rem;
+      padding-left: 9rem;
+    }
+  }
+  .formGroup {
+    gap: 1rem;
+    padding-top: 1.5rem;
+
+    label {
+      font-size: 1.2rem;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 15rem;
+      height: 2rem;
+    }
+  }
+  .saveButton {
+    margin-top: 1.5rem;
+    margin-left: 6rem;
+  }
+  .closeButton {
+    font-size: 1.2rem;
+  }
+  .profileWarning {
+    padding-top: 0.5rem;
+    padding-left: 7rem;
+  }
+  .confirmText {
+    font-size: 0.8rem;
+    padding-left: 4rem;
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 1000px) {
+  .modalBody {
+    padding: 0.3rem;
+    width: 23rem;
+    height: 16rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    h2 {
+      font-size: 0.6rem;
+      padding-left: 8rem;
+    }
+  }
+  .formGroup {
+    gap: 01rem;
+    padding-top: 1rem;
+
+    label {
+      font-size: 1rem;
+    }
+    input {
+      padding: 0.4rem;
+      font-size: 0.7rem;
+      width: 10rem;
+      height: 1.8rem;
+    }
+  }
+  .saveButton {
+    margin-top: 0.5rem;
+    margin-left: 7rem;
+  }
+  .closeButton {
+    font-size: 0.8rem;
+  }
+  .profileWarning {
+    font-size: 0.6rem;
+    padding-top: 0.2rem;
+    padding-left: 7rem;
+  }
+  .confirmText {
+    font-size: 0.5rem;
+    padding-left: 5rem;
+    padding-top: 0.5rem;
+  }
+}
+@media (max-width: 800px) {
+  .modalBody {
+    padding: 0.1rem;
+    width: 14rem;
+    height: 10rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    h2 {
+      font-size: 0.4rem;
+      padding-left: 5rem;
+    }
+  }
+  .formGroup {
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+
+    label {
+      font-size: 0.6rem;
+    }
+    input {
+      border-radius: 3px;
+      border: 0.5px solid rgb(144, 139, 139);
+      padding: 0.3rem;
+      font-size: 0.4rem;
+      width: 7rem;
+      height: 1rem;
+    }
+  }
+  .saveButton {
+    margin-top: 0.5rem;
+    margin-left: 4rem;
+  }
+  .closeButton {
+    font-size: 0.8rem;
+  }
+  .profileWarning {
+    font-size: 0.4rem;
+    padding-top: 0.2rem;
+    padding-left: 4rem;
+  }
+  .confirmText {
+    font-size: 0.3rem;
+    padding-left: 3.5rem;
+    padding-top: 0.3rem;
+  }
+}
+@media (max-width: 600px) {
+  .modalBody {
+    padding: 0.1rem;
+    width: 8.5rem;
+    height: 6.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    h2 {
+      font-size: 0.3rem;
+      padding-left: 2.3rem;
+    }
+  }
+  .formGroup {
+    gap: 0.2;
+    padding-top: 0.2rem;
+
+    label {
+      font-size: 0.3rem;
+    }
+    input {
+      border: 0.5px solid rgb(144, 139, 139);
+      padding: 0.1rem;
+      font-size: 0.2rem;
+      width: 4rem;
+      height: 0.6rem;
+      border-radius: 3px;
+    }
+  }
+  .saveButton {
+    margin-top: 0.2rem;
+    margin-left: 2.1rem;
+  }
+  .closeButton {
+    font-size: 0.4rem;
+  }
+  .profileWarning {
+    font-size: 0.3rem;
+    padding-top: 0.1rem;
+    padding-left: 1.8rem;
+  }
+  .confirmText {
+    font-size: 0.2rem;
+    padding-left: 2rem;
+    padding-top: 0.2rem;
+  }
+}
+@media (max-width: 420px) {
+  .modalBody {
+    border: 0.5px solid rgb(225, 197, 234);
+    padding: 0.1rem;
+    width: 5.8rem;
+    height: 5rem;
+    margin-top: 0.2rem;
+    margin-left: 0.1rem;
+    h2 {
+      font-size: 0.2rem;
+      padding-left: 2.3rem;
+    }
+  }
+  .formGroup {
+    gap: 0.1;
+    padding-top: 0.2rem;
+
+    label {
+      font-size: 0.2rem;
+    }
+    input {
+      border: 0.3px solid rgb(144, 139, 139);
+      padding: 0.1rem;
+      font-size: 0.2rem;
+      width: 3rem;
+      height: 0.4rem;
+      border-radius: 2px;
+    }
+  }
+  .saveButton {
+    margin-top: 0.2rem;
+    margin-left: 1.6rem;
+  }
+  .closeButton {
+    font-size: 0.4rem;
+  }
+  .profileWarning {
+    font-size: 0.2rem;
+    padding-top: 0.1rem;
+    padding-left: 1.8rem;
+  }
+  .confirmText {
+    font-size: 0.18rem;
+    padding-left: 1rem;
+    padding-top: 0.2rem;
+  }
+}

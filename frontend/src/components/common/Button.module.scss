@@ -34,6 +34,15 @@
   width: 26rem;
   height: 3.2rem;
 }
+.confirm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 0 0;
+  font-weight: 700;
+  width: 26rem;
+  height: 3.2rem;
+}
 .status {
   color: rgb(173, 162, 162);
   font-weight: 800;
@@ -79,11 +88,24 @@
     background-color: transparent;
   }
 }
+@media (max-width: 1850px) {
+  .profile {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 1480px) {
   .booking {
     font-size: 0.8rem;
     width: 21rem;
     height: 3rem;
+  }
+  .profile {
+    font-size: 0.9rem;
+  }
+  .confirm {
+    font-size: 0.8rem;
+    width: 18rem;
+    height: 2.5rem;
   }
 }
 @media (max-width: 1200px) {
@@ -103,6 +125,20 @@
     margin-top: 1rem;
     width: 2.8rem;
     height: 2rem;
+  }
+  .profile {
+    padding: 0px 0px 0px 0px;
+    font-size: 0.8rem;
+  }
+  .pagination {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.5rem;
+    border-radius: 0.35rem;
+  }
+  .confirm {
+    font-size: 0.7rem;
+    width: 15rem;
+    height: 2.2rem;
   }
 }
 @media (max-width: 1000px) {
@@ -129,6 +165,20 @@
     margin-top: 1rem;
     width: 2.8rem;
     height: 2rem;
+  }
+  .profile {
+    padding: 0px 0px 0px 0px;
+    font-size: 0.6rem;
+  }
+  .pagination {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.5rem;
+    border-radius: 0.35rem;
+  }
+  .confirm {
+    font-size: 0.5rem;
+    width: 9rem;
+    height: 1.5rem;
   }
 }
 @media (max-width: 800px) {
@@ -157,6 +207,21 @@
     font-size: 0.4rem;
     width: 12rem;
     height: 1.8rem;
+  }
+  .profile {
+    padding: 0px 0px 0px 0px;
+    font-size: 0.5rem;
+  }
+  .pagination {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.3rem;
+    border-radius: 0.25rem;
+  }
+  .confirm {
+    border-radius: 3px;
+    font-size: 0.3rem;
+    width: 6rem;
+    height: 1rem;
   }
 }
 @media (max-width: 600px) {
@@ -189,6 +254,21 @@
     margin-top: 0rem;
     width: 1.5rem;
     height: 1rem;
+  }
+  .profile {
+    padding: 0px 0px 0px 0px;
+    font-size: 0.35rem;
+  }
+  .pagination {
+    padding: 0.17rem 0.23rem;
+    font-size: 0.18rem;
+    border-radius: 0.18rem;
+  }
+  .confirm {
+    border-radius: 2px;
+    font-size: 0.18rem;
+    width: 3.8rem;
+    height: 0.4rem;
   }
 }
 
@@ -226,5 +306,20 @@
     border-radius: 0.2rem;
     width: 1rem;
     height: 0.7rem;
+  }
+  .profile {
+    padding: 0px 0px 0px 0px;
+    font-size: 0.25rem;
+  }
+  .pagination {
+    padding: 0.15rem 0.2rem;
+    font-size: 0.1rem;
+    border-radius: 0.15rem;
+  }
+  .confirm {
+    border-radius: 2px;
+    font-size: 0.1rem;
+    width: 2.5rem;
+    height: 0.5rem;
   }
 }

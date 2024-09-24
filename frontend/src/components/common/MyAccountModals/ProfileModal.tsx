@@ -79,7 +79,7 @@ const ProfileModal = ({
           </div>
 
           <div className={styles.saveButton}>
-            <Button booking type="submit">
+            <Button confirm type="submit">
               Edit & Save Your Profile
             </Button>
           </div>
